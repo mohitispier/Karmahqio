@@ -380,7 +380,13 @@ footer{background:#111827;color:#fff;padding:52px 24px 26px;}
   <a href="https://karmahqio.base44.app/pricing">Pricing</a>
   <a href="https://karmahqio.base44.app/contect">Contact</a>
 </div>
-
+<script>
+  // Force homepage in history
+  history.pushState(null, null, location.href);
+  window.onpopstate = function () {
+    location.href = "https://karmahq.io";
+  };
+</script>
 <div class="nav-right">
   <a href="https://karmahqio.base44.app/login?from_url=https%3A%2F%2Fkarmahqio.base44.app%2F">
     <button class="btn-login">Login</button>
@@ -950,8 +956,8 @@ footer{background:#111827;color:#fff;padding:52px 24px 26px;}
     <div class="footer-bot">
       <p>© 2026 Karma HQ. All rights reserved.</p>
       <div class="footer-bot-links">
-        <a onclick="showPage('home')">Terms</a>
-        <a onclick="showPage('home')">Privacy</a>
+<a href="https://karmahqio.base44.app/terms">Terms</a>
+<a href="https://karmahqio.base44.app/terms">Privacy</a>
       </div>
     </div>
   </div>
