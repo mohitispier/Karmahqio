@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>KarmaHQ – Make Your Brand Rank On AI Search Engines</title>
+<meta name="description" content="The only AI search visibility platform. Track rankings, monitor cited conversations and place your brand where AI engines look first."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;900&family=Inter:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;color:#111827;background:#fff;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+:root{--orange:#FF6201;--orange2:#F63E02;}
+
+/* ── NAV ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(255,255,255,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.06);}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{display:flex;align-items:center;gap:8px;font-family:'Outfit',sans-serif;font-size:20px;font-weight:900;color:#111827;cursor:pointer;}
+.logo-k{width:32px;height:32px;background:var(--orange);border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:15px;flex-shrink:0;}
+.logo-hq{color:var(--orange);}
+.nav-links{display:flex;align-items:center;gap:28px;}
+.nav-links a{font-size:14px;font-weight:500;color:#6b7280;transition:color .2s;cursor:pointer;}
+.nav-links a:hover{color:#111827;}
+.nav-right{display:flex;align-items:center;gap:12px;}
+.btn-login{font-size:14px;font-weight:500;color:#6b7280;background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;}
+.btn-dark{background:#111827;color:#fff;border:none;padding:10px 22px;border-radius:999px;font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;}
+.btn-dark:hover{background:#1f2937;}
+.btn-orange{background:var(--orange);color:#fff;border:none;padding:10px 22px;border-radius:999px;font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;}
+.btn-orange:hover{background:var(--orange2);}
+.btn-outline-dark{background:transparent;color:#111827;border:1.5px solid rgba(0,0,0,.18);padding:10px 22px;border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;}
+.btn-outline-dark:hover{border-color:#111827;}
+.mob-toggle{display:none;background:none;border:none;cursor:pointer;font-size:22px;color:#6b7280;}
+.mob-menu{display:none;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);padding:16px 24px 24px;position:fixed;top:64px;left:0;right:0;z-index:998;}
+.mob-menu.open{display:block;}
+.mob-menu a{display:block;padding:12px 0;border-bottom:1px solid rgba(0,0,0,.05);font-size:15px;font-weight:500;color:#6b7280;cursor:pointer;}
+
+/* ── PAGES ── */
+.page{display:none;padding-top:64px;}
+.page.active{display:block;}
+
+/* ── HERO ── */
+.hero{min-height:calc(100vh - 64px);display:flex;align-items:center;justify-content:center;background:#fff;position:relative;overflow:hidden;}
+.hero-dots{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(0,0,0,.055) 1px,transparent 1px);background-size:32px 32px;pointer-events:none;}
+.hero-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(255,98,1,.09) 0%,transparent 70%);border-radius:50%;filter:blur(50px);pointer-events:none;}
+.hero-inner{position:relative;z-index:10;text-align:center;padding:0 24px;max-width:860px;margin:0 auto;}
+.hero-badge{display:inline-flex;align-items:center;background:#111827;color:#fff;border-radius:999px;padding:7px 20px;font-size:12px;font-weight:600;margin-bottom:36px;letter-spacing:.05em;}
+.hero h1{font-family:'Outfit',sans-serif;font-size:clamp(44px,7.5vw,84px);font-weight:900;line-height:1.03;letter-spacing:-3px;color:#111827;margin-bottom:12px;}
+.hero h1 .rank-row{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;color:var(--orange);}
+.ai-logo-box{display:inline-flex;width:44px;height:44px;border-radius:10px;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.1);border:1px solid #e5e7eb;align-items:center;justify-content:center;padding:8px;vertical-align:middle;flex-shrink:0;}
+.ai-logo-box img{width:100%;height:100%;object-fit:contain;}
+.hero-sub{font-size:17px;color:#6b7280;margin-bottom:36px;line-height:1.75;max-width:560px;margin-left:auto;margin-right:auto;}
+.hero-btns{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px;margin-bottom:28px;}
+.hero-btns .btn-dark{padding:14px 28px;font-size:15px;border-radius:999px;}
+.hero-btns .btn-orange{padding:14px 28px;font-size:15px;border-radius:999px;}
+.hero-hint{font-size:13px;color:#9ca3af;}
+/* Floating platform icons */
+.fi{position:absolute;display:none;z-index:10;}
+@media(min-width:900px){.fi{display:block;}}
+.fi-inner{border-radius:999px;background:#fff;box-shadow:0 4px 18px rgba(0,0,0,.12);border:2px solid #f3f4f6;display:flex;align-items:center;justify-content:center;padding:8px;width:100%;height:100%;}
+.fi-inner img{width:100%;height:100%;object-fit:contain;border-radius:50%;}
+.fi-reddit{top:22%;left:5%;width:52px;height:52px;animation:float 4s ease-in-out infinite;}
+.fi-linkedin{top:62%;left:3%;width:40px;height:40px;animation:floatr 5s ease-in-out infinite;}
+.fi-instagram{top:62%;right:3%;width:40px;height:40px;animation:float 4.5s ease-in-out infinite;}
+.fi-facebook{top:22%;right:5%;width:52px;height:52px;animation:floatr 5s ease-in-out infinite;}
+.fi-quora{top:8%;left:0%;width:36px;height:36px;animation:float 3.5s ease-in-out infinite;}
+.fi-google{top:8%;right:1%;width:36px;height:36px;animation:floatr 4.5s ease-in-out infinite;}
+
+/* ── LLM SECTION ── */
+.llm-sec{padding:80px 24px;background:#f9fafb;}
+.llm-inner{max-width:1000px;margin:0 auto;}
+.llm-title{font-family:'Outfit',sans-serif;font-size:clamp(28px,4vw,46px);font-weight:900;color:#111827;text-align:center;max-width:720px;margin:0 auto 14px;line-height:1.15;}
+.llm-title .hl{color:var(--orange);}
+.llm-sub{text-align:center;color:#6b7280;font-size:16px;max-width:700px;margin:0 auto 48px;line-height:1.75;}
+.llm-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.llm-card{background:#fff;border:1px solid #e5e7eb;border-radius:18px;padding:24px 20px;display:flex;align-items:flex-start;gap:14px;}
+.llm-check{width:38px;height:38px;border-radius:12px;background:#fff0e8;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;}
+.llm-card p{font-size:15px;font-weight:700;color:#111827;line-height:1.45;margin-top:4px;}
+
+/* ── COMPARISON ── */
+.comp-light{padding:80px 24px;background:#fff;}
+.comp-dark{padding:80px 24px;background:#111827;}
+.comp-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1100px;margin:0 auto;}
+.obadge{display:inline-block;background:var(--orange);color:#fff;border-radius:999px;padding:5px 16px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px;}
+.comp-h2{font-family:'Outfit',sans-serif;font-size:clamp(24px,3.2vw,38px);font-weight:900;color:#111827;margin-bottom:14px;line-height:1.2;}
+.comp-dark .comp-h2{color:#fff;}
+.comp-p{font-size:15px;color:#6b7280;line-height:1.75;margin-bottom:22px;}
+.comp-dark .comp-p{color:#9ca3af;}
+.trust-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:28px;}
+.trust-card{background:#f9fafb;border-radius:14px;padding:16px;}
+.trust-n{font-size:22px;font-weight:900;color:var(--orange);margin-bottom:4px;}
+.trust-l{font-size:11px;color:#6b7280;line-height:1.4;}
+.chart-box{background:#fff;border:1px solid #e5e7eb;border-radius:22px;padding:26px;box-shadow:0 4px 24px rgba(0,0,0,.05);}
+.chart-lbl{font-size:11px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:.08em;margin-bottom:20px;}
+.bar-item{margin-bottom:16px;}
+.bar-head{display:flex;justify-content:space-between;margin-bottom:5px;}
+.bar-head span:first-child{font-size:13px;font-weight:600;color:#374151;}
+.bar-head span:last-child{font-size:13px;font-weight:900;color:var(--orange);}
+.bar-bg{height:10px;background:#f3f4f6;border-radius:999px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--orange),var(--orange2));}
+.dark-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.dark-card{background:#1f2937;border:1px solid #374151;border-radius:16px;padding:20px;}
+.dark-n{font-size:26px;font-weight:900;color:var(--orange);margin-bottom:4px;}
+.dark-l{font-size:11px;color:#9ca3af;line-height:1.4;}
+.bullet-ul{list-style:none;margin-bottom:28px;}
+.bullet-li{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;font-size:14px;color:#d1d5db;line-height:1.65;}
+.bullet-dot{width:8px;height:8px;border-radius:50%;background:var(--orange);flex-shrink:0;margin-top:6px;}
+
+/* ── THREE SERVICES ── */
+.svc-sec{padding:80px 24px;background:#fff;}
+.sec-center{text-align:center;margin-bottom:48px;}
+.sec-center h2{font-family:'Outfit',sans-serif;font-size:clamp(26px,3.5vw,40px);font-weight:900;color:#111827;margin-bottom:10px;}
+.sec-center h2 .hl{color:var(--orange);}
+.sec-center p{color:#9ca3af;font-size:15px;max-width:480px;margin:0 auto;}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1100px;margin:0 auto 48px;}
+.svc-card{background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:28px;}
+.svc-icon-box{width:48px;height:48px;border-radius:14px;background:#fff0e8;display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:22px;}
+.svc-card h3{font-size:17px;font-weight:900;color:#111827;margin-bottom:8px;}
+.svc-desc{font-size:13px;color:#9ca3af;margin-bottom:16px;line-height:1.65;}
+.svc-ul{list-style:none;}
+.svc-ul li{display:flex;align-items:flex-start;gap:7px;margin-bottom:7px;font-size:13px;color:#4b5563;line-height:1.5;}
+.svc-ul li::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--orange);flex-shrink:0;margin-top:5px;}
+.stats-bar{border-radius:20px;padding:28px;background:linear-gradient(135deg,var(--orange),var(--orange2));max-width:1100px;margin:0 auto;}
+.stats-bar-row{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.sbi{text-align:center;}
+.sbi-n{font-size:clamp(22px,3vw,36px);font-weight:900;color:#fff;margin-bottom:4px;}
+.sbi-l{font-size:12px;color:rgba(255,255,255,.8);}
+
+/* ── HOW IT WORKS SECTION (HOME) ── */
+.hiw-home{padding:80px 24px;background:#f9fafb;}
+.hiw-home-inner{max-width:1100px;margin:0 auto;}
+.hiw-4grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:1000px;margin:0 auto;}
+.hiw-card{background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:24px 20px;transition:box-shadow .2s,transform .2s;}
+.hiw-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.08);transform:translateY(-3px);}
+.hiw-card-icon{width:46px;height:46px;border-radius:14px;background:#fff0e8;display:flex;align-items:center;justify-content:center;margin-bottom:14px;font-size:20px;}
+.step-pill{display:inline-block;background:var(--orange);color:#fff;border-radius:999px;font-size:11px;font-weight:700;padding:3px 12px;margin-bottom:10px;}
+.hiw-card h3{font-size:15px;font-weight:700;color:#111827;margin-bottom:8px;}
+.hiw-card p{font-size:13px;color:#9ca3af;line-height:1.65;}
+
+/* ── TESTIMONIALS ── */
+.testi-sec{background:#fff;padding:80px 0;overflow:hidden;}
+.testi-hd{text-align:center;padding:0 24px 44px;max-width:680px;margin:0 auto;}
+.mrow{display:flex;animation:marq 40s linear infinite;width:max-content;}
+.mrow.rev{animation-direction:reverse;}
+.testi-card{flex-shrink:0;width:290px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:18px;padding:20px;margin:0 8px;}
+.stars{color:#fbbf24;font-size:12px;margin-bottom:10px;}
+.testi-card p{font-size:13px;color:#4b5563;line-height:1.65;margin-bottom:14px;}
+.testi-author{display:flex;align-items:center;gap:10px;}
+.testi-av{width:32px;height:32px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:12px;flex-shrink:0;}
+.testi-name{font-size:13px;font-weight:700;color:#111827;}
+.testi-role{font-size:11px;color:#6b7280;}
+
+/* ── GET STARTED FORM (HOME) ── */
+.gsf-sec{padding:80px 24px;background:#fff;}
+.gsf-title{font-family:'Outfit',sans-serif;font-size:clamp(26px,3.5vw,40px);font-weight:900;color:#111827;text-align:center;margin-bottom:8px;}
+.gsf-sub{text-align:center;font-size:15px;color:#6b7280;max-width:480px;margin:0 auto 52px;line-height:1.75;}
+.gsf-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:1000px;margin:0 auto;}
+/* Plan cards */
+.gsf-plans-title{font-size:15px;font-weight:700;color:#111827;margin-bottom:4px;}
+.gsf-plans-desc{font-size:13px;color:#9ca3af;margin-bottom:22px;}
+.plan-stack{display:flex;flex-direction:column;gap:16px;}
+.plan-card-a{border-radius:20px;padding:24px;color:#fff;}
+.plan-card-a.free{background:linear-gradient(135deg,#1f2937,#111827);}
+.plan-card-a.pro{background:linear-gradient(135deg,var(--orange),var(--orange2));position:relative;}
+.plan-pop{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#fef3c7;color:#d97706;font-size:10px;font-weight:700;padding:3px 14px;border-radius:999px;white-space:nowrap;}
+.pca-name{font-family:'Outfit',sans-serif;font-size:18px;font-weight:900;margin-bottom:4px;}
+.pca-desc{font-size:12px;opacity:.75;margin-bottom:16px;line-height:1.55;}
+.pca-pricing{background:rgba(255,255,255,.13);border-radius:12px;padding:14px;margin-bottom:14px;}
+.pca-row{display:flex;justify-content:space-between;margin-bottom:6px;font-size:13px;}
+.pca-row:last-child{margin-bottom:0;}
+.pca-row span:first-child{opacity:.75;}
+.pca-row span:last-child{font-weight:900;}
+.pca-feats{list-style:none;margin-bottom:16px;}
+.pca-feats li{display:flex;align-items:center;gap:8px;font-size:12px;margin-bottom:6px;opacity:.9;}
+.pca-feats li::before{content:"✓";font-weight:900;}
+.pca-btn{width:100%;padding:12px;border:none;border-radius:12px;font-size:13px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;}
+.pca-btn-white{background:#fff;color:var(--orange);}
+.pca-btn-orange{background:var(--orange);color:#fff;}
+/* Form box */
+.form-box{background:#fff;border:1px solid #e5e7eb;border-radius:22px;padding:28px;box-shadow:0 4px 24px rgba(0,0,0,.06);}
+.form-box h3{font-family:'Outfit',sans-serif;font-size:18px;font-weight:900;color:#111827;margin-bottom:4px;}
+.form-box .fb-sub{font-size:13px;color:#9ca3af;margin-bottom:20px;}
+.fg{margin-bottom:14px;}
+.flabel{display:block;font-size:12px;font-weight:700;color:#374151;margin-bottom:5px;}
+.finput,.ftextarea{width:100%;padding:11px 14px;border:1.5px solid #e5e7eb;border-radius:11px;font-size:13px;font-family:'DM Sans',sans-serif;outline:none;color:#111827;background:#f9fafb;transition:border .2s;}
+.finput:focus,.ftextarea:focus{border-color:var(--orange);background:#fff;}
+.ftextarea{resize:none;height:88px;}
+.form-row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.fsubmit{width:100%;padding:14px;font-size:14px;font-weight:700;color:#fff;border:none;border-radius:12px;cursor:pointer;background:linear-gradient(135deg,var(--orange),var(--orange2));box-shadow:0 5px 16px rgba(255,98,1,.25);transition:all .2s;font-family:'DM Sans',sans-serif;margin-top:6px;}
+.fsubmit:hover{transform:translateY(-1px);}
+
+/* ── PRICING PAGE ── */
+.pricing-hero{padding:72px 24px 48px;text-align:center;background:#fff;}
+.pricing-hero h1{font-family:'Outfit',sans-serif;font-size:clamp(30px,5vw,52px);font-weight:900;color:#111827;letter-spacing:-1.5px;line-height:1.1;margin-bottom:12px;}
+.pricing-hero p{font-size:16px;color:#9ca3af;max-width:520px;margin:0 auto;line-height:1.7;}
+.pricing-badge{display:inline-block;background:#ffdcd1;color:var(--orange);border-radius:999px;padding:5px 18px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px;}
+.plans-grid-p{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:700px;margin:0 auto 40px;}
+/* Pricing plan card — orange bg same as React app */
+.plan-p{background:var(--orange);color:#fff;border-radius:24px;padding:28px;position:relative;box-shadow:0 12px 40px rgba(255,98,1,.2);}
+.plan-p-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#fef3c7;color:#d97706;font-size:10px;font-weight:700;padding:3px 14px;border-radius:999px;white-space:nowrap;}
+.plan-p-name{font-family:'Outfit',sans-serif;font-size:19px;font-weight:900;margin-bottom:4px;}
+.plan-p-desc{font-size:12px;opacity:.8;margin-bottom:16px;line-height:1.55;}
+.plan-p-pricing{background:rgba(255,255,255,.15);border-radius:12px;padding:14px;margin-bottom:16px;}
+.plan-p-pricing-lbl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.55);margin-bottom:10px;}
+.plan-p-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px;font-size:13px;}
+.plan-p-row:last-child{margin-bottom:0;}
+.plan-p-row span:first-child{color:rgba(255,255,255,.75);}
+.plan-p-row span:last-child{font-weight:900;font-size:15px;}
+.plan-p-feats{list-style:none;margin-bottom:18px;}
+.plan-p-feats li{display:flex;align-items:center;gap:8px;font-size:12px;margin-bottom:6px;color:rgba(255,255,255,.9);}
+.plan-p-feats li .chk{width:16px;height:16px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--orange);font-size:9px;font-weight:900;}
+.plan-p-btn{width:100%;padding:12px;border:none;border-radius:12px;font-size:13px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;}
+.plan-p-btn.white{background:#fff;color:var(--orange);}
+.plan-p-btn.orange{background:var(--orange);color:#fff;border:2px solid rgba(255,255,255,.3);}
+.pricing-cta{max-width:700px;margin:0 auto 60px;text-align:center;padding:36px;background:#f9fafb;border-radius:18px;border:1px solid #e5e7eb;}
+.pricing-cta h3{font-family:'Outfit',sans-serif;font-size:20px;font-weight:900;color:#111827;margin-bottom:8px;}
+.pricing-cta p{font-size:14px;color:#9ca3af;margin-bottom:20px;}
+.faq-sec-p{padding:0 24px 80px;background:#fff;}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:700px;margin:0 auto;}
+.faq-box{background:#f9fafb;border-radius:16px;padding:20px;border:1px solid #e5e7eb;}
+.faq-box h4{font-size:13px;font-weight:700;color:#111827;margin-bottom:6px;}
+.faq-box p{font-size:12px;color:#9ca3af;line-height:1.6;}
+
+/* ── HOW IT WORKS PAGE (5 steps) ── */
+.hiw-page-hero{padding:64px 24px 44px;text-align:center;background:#f9fafb;}
+.hiw-page-inner{max-width:1000px;margin:0 auto;padding:0 24px 80px;}
+.hiw5-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.hiw5-card{background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:24px;display:flex;gap:16px;transition:box-shadow .2s;}
+.hiw5-card:hover{box-shadow:0 8px 24px rgba(0,0,0,.07);}
+.hiw5-num{width:44px;height:44px;border-radius:50%;background:var(--orange);color:#fff;font-family:'Outfit',sans-serif;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.hiw5-emoji{font-size:22px;margin-bottom:8px;}
+.hiw5-card h3{font-size:15px;font-weight:700;color:#111827;margin-bottom:6px;}
+.hiw5-card p{font-size:13px;color:#6b7280;line-height:1.65;}
+.hiw5-full{grid-column:span 2;}
+
+/* ── ABOUT ── */
+.about-hero-sec{padding:72px 24px 52px;text-align:center;background:#f9fafb;}
+.about-hero-sec h1{font-family:'Outfit',sans-serif;font-size:clamp(32px,5vw,54px);font-weight:900;color:#111827;letter-spacing:-2px;line-height:1.1;margin-bottom:14px;}
+.about-hero-sec h1 span{color:var(--orange);}
+.about-hero-sec p{font-size:16px;color:#6b7280;max-width:520px;margin:0 auto;line-height:1.7;}
+.stats-dark-bar{background:#111827;padding:56px 24px;}
+.stats-dark-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.08);border-radius:16px;overflow:hidden;max-width:880px;margin:0 auto;}
+.stats-dark-item{background:#111827;padding:36px 16px;text-align:center;}
+.sdi-n{font-family:'Outfit',sans-serif;font-size:40px;font-weight:900;color:#fff;}
+.sdi-n span{color:var(--orange);}
+.sdi-l{font-size:12px;color:rgba(255,255,255,.4);margin-top:6px;}
+.story-wrap{display:grid;grid-template-columns:1fr 1fr;gap:52px;max-width:940px;margin:0 auto;}
+.timeline-box{background:#f9fafb;border-radius:18px;padding:26px;border:1px solid #e5e7eb;}
+.t-row{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+.t-yr{font-size:11px;font-weight:900;color:var(--orange);min-width:34px;}
+.t-ln{flex:1;height:1px;background:#e5e7eb;}
+.t-ev{font-size:12px;font-weight:500;color:#111827;}
+.vals-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:940px;margin:0 auto;}
+.val-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:20px;}
+.val-icon{font-size:24px;margin-bottom:10px;}
+.val-card h3{font-size:14px;font-weight:700;color:#111827;margin-bottom:5px;}
+.val-card p{font-size:12px;color:#6b7280;line-height:1.6;}
+
+/* ── CONTACT ── */
+.contact-hero-sec{padding:64px 24px 36px;text-align:center;background:#fff;}
+.contact-hero-sec h1{font-family:'Outfit',sans-serif;font-size:clamp(28px,4vw,44px);font-weight:900;color:#111827;letter-spacing:-1px;margin-bottom:10px;}
+.contact-hero-sec p{font-size:15px;color:#6b7280;max-width:460px;margin:0 auto;line-height:1.7;}
+.contact-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:44px;max-width:880px;margin:0 auto;padding:0 24px 80px;}
+.c-info-title{font-size:17px;font-weight:700;color:#111827;margin-bottom:22px;}
+.c-row{display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;}
+.c-ico{width:42px;height:42px;background:var(--orange);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:17px;flex-shrink:0;}
+.c-lbl{font-size:11px;color:#9ca3af;margin-bottom:2px;}
+.c-val{font-size:14px;font-weight:700;color:#111827;}
+.chat-dark-box{background:#111827;border-radius:18px;padding:20px;color:#fff;margin-top:8px;}
+.chat-dark-box h4{font-size:14px;font-weight:700;margin-bottom:5px;}
+.chat-dark-box p{font-size:12px;color:rgba(255,255,255,.4);line-height:1.6;margin-bottom:12px;}
+.resp-row{background:#0d0d10;border-radius:10px;padding:11px;display:flex;align-items:center;gap:8px;}
+.green-dot{width:7px;height:7px;background:#10b981;border-radius:50%;flex-shrink:0;}
+
+/* ── CTA BANNER ── */
+.cta-banner{background:#111827;padding:64px 24px;text-align:center;}
+.cta-banner h2{font-family:'Outfit',sans-serif;font-size:clamp(24px,3.8vw,40px);font-weight:900;color:#fff;margin-bottom:12px;letter-spacing:-1px;}
+.cta-banner p{font-size:15px;color:rgba(255,255,255,.5);margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto;}
+
+/* ── FOOTER ── */
+footer{background:#111827;color:#fff;padding:52px 24px 26px;}
+.footer-inner{max-width:1200px;margin:0 auto;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;}
+.footer-brand p{font-size:12px;color:rgba(255,255,255,.4);line-height:1.7;margin:10px 0;}
+.footer-brand a{font-size:12px;color:rgba(255,255,255,.3);}
+.footer-col h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.3);margin-bottom:12px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:8px;}
+.footer-col a{font-size:13px;color:rgba(255,255,255,.4);transition:color .2s;cursor:pointer;}
+.footer-col a:hover{color:#fff;}
+.footer-bot{border-top:1px solid rgba(255,255,255,.06);padding-top:18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.footer-bot p{font-size:11px;color:rgba(255,255,255,.2);}
+.footer-bot-links{display:flex;gap:16px;}
+.footer-bot-links a{font-size:11px;color:rgba(255,255,255,.2);cursor:pointer;}
+
+/* ── CHAT WIDGET (exact same as React app) ── */
+.chat-bubble{position:fixed;bottom:96px;right:24px;z-index:50;background:#fff;box-shadow:0 8px 32px rgba(0,0,0,.15);border-radius:18px 18px 4px 18px;padding:12px 16px;max-width:260px;border:1px solid #e5e7eb;}
+.chat-bubble-close{position:absolute;top:-8px;right:-8px;width:20px;height:20px;background:#9ca3af;border-radius:50%;border:none;cursor:pointer;color:#fff;font-size:11px;display:flex;align-items:center;justify-content:center;}
+.chat-bubble p{font-size:13px;font-weight:500;color:#111827;}
+.chat-panel{position:fixed;bottom:96px;right:24px;z-index:50;width:300px;height:470px;background:#fff;border-radius:24px;box-shadow:0 12px 48px rgba(0,0,0,.15);border:1px solid #e5e7eb;display:none;flex-direction:column;overflow:hidden;}
+.chat-panel.open{display:flex;}
+.chat-hdr{background:#111827;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;}
+.chat-hdr-left{display:flex;align-items:center;gap:10px;}
+.chat-av{width:36px;height:36px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:13px;}
+.chat-nm{color:#fff;font-size:13px;font-weight:700;}
+.chat-st{display:flex;align-items:center;gap:5px;font-size:10px;color:rgba(255,255,255,.4);}
+.chat-st-dot{width:7px;height:7px;background:#10b981;border-radius:50%;}
+.chat-hdr-close{background:none;border:none;color:rgba(255,255,255,.5);cursor:pointer;font-size:18px;padding:0;}
+.chat-intro{background:#fff7f0;border-bottom:1px solid #ffe4d4;padding:10px 14px;}
+.chat-intro p{font-size:11px;font-weight:600;color:#c2410c;margin-bottom:7px;}
+.chat-intro-row{display:flex;gap:8px;}
+.chat-intro-row input{flex:1;font-size:11px;padding:6px 9px;border-radius:8px;border:1px solid #fcd0b0;background:#fff;outline:none;font-family:'DM Sans',sans-serif;}
+.chat-msgs-area{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;}
+.chat-msg-row{display:flex;}
+.chat-msg-row.bot{justify-content:flex-start;align-items:flex-end;gap:6px;}
+.chat-msg-row.user{justify-content:flex-end;}
+.chat-av-sm{width:26px;height:26px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;color:#fff;font-size:10px;font-weight:700;flex-shrink:0;}
+.msg-bubble{max-width:80%;padding:9px 13px;font-size:12px;line-height:1.6;}
+.msg-bubble.bot{background:#f3f4f6;color:#374151;border-radius:16px 16px 16px 4px;}
+.msg-bubble.user{background:var(--orange);color:#fff;border-radius:16px 16px 4px 16px;}
+.chat-inp-row{border-top:1px solid #f3f4f6;padding:12px 14px;}
+.chat-inp-wrap{display:flex;align-items:center;gap:8px;background:#f3f4f6;border-radius:20px;padding:7px 12px;}
+.chat-inp{flex:1;border:none;background:transparent;font-size:12px;color:#111827;outline:none;font-family:'DM Sans',sans-serif;}
+.chat-send-btn{width:28px;height:28px;border-radius:50%;background:var(--orange);border:none;cursor:pointer;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;transition:background .2s;}
+.chat-send-btn:hover{background:var(--orange2);}
+.chat-footer{text-align:center;font-size:10px;color:#d1d5db;margin-top:6px;}
+/* Toggle button — teal/green like React app */
+.chat-toggle{position:fixed;bottom:24px;right:24px;z-index:50;width:54px;height:54px;border-radius:50%;background:#0d9488;border:none;cursor:pointer;box-shadow:0 6px 24px rgba(13,148,136,.4);display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;transition:transform .2s;}
+.chat-toggle:hover{transform:scale(1.07);}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;padding:10px 22px;border-radius:10px;font-size:13px;font-weight:600;z-index:99999;opacity:0;transition:opacity .3s;pointer-events:none;}
+.toast.show{opacity:1;}
+
+/* ── SECTION util ── */
+.section{padding:80px 24px;}
+.container{max-width:1200px;margin:0 auto;}
+
+/* ── KEYFRAMES ── */
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+@keyframes floatr{0%,100%{transform:translateY(0);}50%{transform:translateY(12px);}}
+@keyframes marq{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .nav-links,.nav-right{display:none;}
+  .mob-toggle{display:block;}
+  .comp-grid,.gsf-grid,.story-wrap,.contact-grid{grid-template-columns:1fr;}
+  .svc-grid,.llm-cards,.hiw-4grid,.hiw5-grid,.plans-grid-p,.faq-grid,.vals-grid,.dark-cards,.trust-grid,.stats-bar-row,.stats-dark-grid{grid-template-columns:1fr 1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .hiw5-full{grid-column:span 1;}
+}
+@media(max-width:600px){
+  .svc-grid,.llm-cards,.hiw-4grid,.hiw5-grid,.plans-grid-p,.faq-grid,.vals-grid,.dark-cards,.trust-grid,.stats-bar-row,.stats-dark-grid,.footer-grid{grid-template-columns:1fr;}
+  .hero-btns{flex-direction:column;align-items:stretch;}
+  .form-row2{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="toast" id="toast"></div>
+
+<!-- ── NAVBAR ── -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="showPage('home')">
+      <div class="logo-k">K</div>
+      <span>Karma<span class="logo-hq">HQ</span></span>
+    </div>
+    <div class="nav-links">
+      <a onclick="showPage('about')">About</a>
+      <a onclick="showPage('hiw')">How It Works</a>
+      <a onclick="showPage('pricing')">Pricing</a>
+      <a onclick="showPage('contact')">Contact</a>
+    </div>
+    <div class="nav-right">
+      <button class="btn-login">Login</button>
+      <button class="btn-orange" style="display:inline-flex;align-items:center;gap:6px;" onclick="showPage('contact')">Get Started For Free →</button>
+    </div>
+    <button class="mob-toggle" onclick="document.getElementById('mobMenu').classList.toggle('open')">☰</button>
+  </div>
+  <div class="mob-menu" id="mobMenu">
+    <a onclick="showPage('about');closeMob()">About</a>
+    <a onclick="showPage('hiw');closeMob()">How It Works</a>
+    <a onclick="showPage('pricing');closeMob()">Pricing</a>
+    <a onclick="showPage('contact');closeMob()">Contact</a>
+    <div style="padding-top:14px;"><button class="btn-orange" style="width:100%;" onclick="showPage('contact');closeMob()">Get Started For Free →</button></div>
+  </div>
+</nav>
+
+<!-- ═══════════════ PAGE: HOME ═══════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-dots"></div>
+    <div class="hero-glow"></div>
+    <!-- Floating platform icons -->
+    <div class="fi fi-reddit"><div class="fi-inner"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Reddit_logo_new.svg/2048px-Reddit_logo_new.svg.png" alt="Reddit"/></div></div>
+    <div class="fi fi-linkedin"><div class="fi-inner"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/800px-LinkedIn_logo_initials.png" alt="LinkedIn"/></div></div>
+    <div class="fi fi-instagram"><div class="fi-inner"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png" alt="Instagram"/></div></div>
+    <div class="fi fi-facebook"><div class="fi-inner"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1200px-Facebook_Logo_%282019%29.png" alt="Facebook"/></div></div>
+    <div class="fi fi-quora"><div class="fi-inner"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Quora_logo_2015.svg/2560px-Quora_logo_2015.svg.png" alt="Quora"/></div></div>
+    <div class="fi fi-google"><div class="fi-inner"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/2560px-Gmail_icon_%282020%29.svg.png" alt="Google"/></div></div>
+    <div class="hero-inner">
+      <div class="hero-badge">#1 AI Search Visibility Tool</div>
+      <h1>
+        Make Your Brand<br/>
+        <span class="rank-row">
+          Rank On&nbsp;
+          <span class="ai-logo-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Google_Gemini_logo.svg/2560px-Google_Gemini_logo.svg.png" alt="Gemini"/></span>
+          <span class="ai-logo-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/1024px-ChatGPT_logo.svg.png" alt="ChatGPT"/></span>
+          <span class="ai-logo-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Claude.ai_logo.svg/2048px-Claude.ai_logo.svg.png" alt="Claude"/></span>
+          <span class="ai-logo-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Perplexity_AI_Logo.svg/2048px-Perplexity_AI_Logo.svg.png" alt="Perplexity"/></span>
+        </span><br/>
+        AI Search Engines
+      </h1>
+      <p class="hero-sub">Let Karma HQ handle Reddit &amp; Quora Marketing for AI visibility. Turn conversations into customers and get found on AI search results on Google.</p>
+      <div class="hero-btns">
+        <button class="btn-dark" onclick="showPage('contact')">Schedule a Demo Service ▶</button>
+        <button class="btn-orange" onclick="showPage('contact')">Request a Consultation →</button>
+      </div>
+      <div class="hero-hint">🏆 Get Ready to Outrank Your Competitors</div>
+    </div>
+  </section>
+
+  <!-- LLM SECTION -->
+  <section class="llm-sec">
+    <div class="llm-inner">
+      <h2 class="llm-title">AI Search Ranking Is The Future– <span class="hl">Karma HQ</span> Helps With Better Visibility</h2>
+      <p class="llm-sub">Want your business to rank on ChatGPT, Perplexity, Claude, and other renowned AI engines? Leave the stress on Karma HQ. With AI shaping how we search the web, traditional SEO is now outranked by AEO (Answer Engine Optimisation) and GEO (Generative Engine Optimisation).</p>
+      <div class="llm-cards">
+        <div class="llm-card"><div class="llm-check">✅</div><p>Improve Your Brand's AI Visibility</p></div>
+        <div class="llm-card"><div class="llm-check">✅</div><p>Enhance Your Organic Rankings</p></div>
+        <div class="llm-card"><div class="llm-check">✅</div><p>Drive High Quality Online Traffic</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON: Forum Insights -->
+  <section class="comp-light">
+    <div class="comp-grid">
+      <div>
+        <div class="obadge">Forum Insights</div>
+        <h2 class="comp-h2">Forum Results are Ruling<br/>the AI Queries</h2>
+        <p class="comp-p">AI-based search tools often use community forum analysis to generate insights. Reddit is one of the three most commonly cited sources by AI assistants for product-related discussions.</p>
+        <div class="trust-grid">
+          <div class="trust-card"><div class="trust-n">35%</div><div class="trust-l">Reddit &amp; Quora Search Query CTR Rise</div></div>
+          <div class="trust-card"><div class="trust-n">52%</div><div class="trust-l">Consumers trust community discussions over brand content</div></div>
+          <div class="trust-card"><div class="trust-n">48%</div><div class="trust-l">Buyers read Reddit/Quora threads before purchasing</div></div>
+          <div class="trust-card"><div class="trust-n">25%</div><div class="trust-l">Informational queries display Quora answers</div></div>
+        </div>
+        <button class="btn-orange" onclick="showPage('contact')">Know More →</button>
+      </div>
+      <div class="chart-box">
+        <p class="chart-lbl">This is Where AI Gets Its Answers From</p>
+        <div class="bar-item"><div class="bar-head"><span>Reddit</span><span>40%</span></div><div class="bar-bg"><div class="bar-fill" style="width:100%"></div></div></div>
+        <div class="bar-item"><div class="bar-head"><span>Quora</span><span>28%</span></div><div class="bar-bg"><div class="bar-fill" style="width:70%"></div></div></div>
+        <div class="bar-item"><div class="bar-head"><span>Wikipedia</span><span>26%</span></div><div class="bar-bg"><div class="bar-fill" style="width:65%"></div></div></div>
+        <div class="bar-item"><div class="bar-head"><span>Google</span><span>23%</span></div><div class="bar-bg"><div class="bar-fill" style="width:57%"></div></div></div>
+        <div class="bar-item"><div class="bar-head"><span>YouTube</span><span>20%</span></div><div class="bar-bg"><div class="bar-fill" style="width:50%"></div></div></div>
+        <p style="font-size:11px;color:#9ca3af;margin-top:16px;line-height:1.6;">Forum discussions, answers, and threads are highly favoured in AI searches.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON: Dark 60-70% -->
+  <section class="comp-dark">
+    <div class="comp-grid">
+      <div>
+        <h2 class="comp-h2">60–70% of AI-generated Recommendations Are From <span style="color:var(--orange)">Reddit &amp; Quora</span></h2>
+        <p class="comp-p">Staying active in Reddit and Quora discussions is highly beneficial for brands aiming for AI rankings, and Karma HQ knows how to market your brand on these community forums.</p>
+        <ul class="bullet-ul">
+          <li><span class="bullet-dot"></span><span>Influence customer actions by showing up in trusted communities.</span></li>
+          <li><span class="bullet-dot"></span><span>Enhance your brand mentions and get better results in AI searches.</span></li>
+          <li><span class="bullet-dot"></span><span>Being a leading Reddit and Quora marketing agency, Karma HQ strategically places brands in conversations that are continuously driving search and AI recommendations.</span></li>
+        </ul>
+      </div>
+      <div class="dark-cards">
+        <div class="dark-card"><div class="dark-n">60-70%</div><div class="dark-l">AI Recommendations from Reddit &amp; Quora</div></div>
+        <div class="dark-card"><div class="dark-n">3rd</div><div class="dark-l">Reddit is 3rd most cited AI source globally</div></div>
+        <div class="dark-card"><div class="dark-n">52%</div><div class="dark-l">Consumers trust community discussions</div></div>
+        <div class="dark-card"><div class="dark-n">35%</div><div class="dark-l">Rise in Reddit &amp; Quora CTRs from AI search</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THREE SERVICES -->
+  <section class="svc-sec">
+    <div class="sec-center">
+      <div class="obadge" style="margin-bottom:16px;">Our Services</div>
+      <h2>Rule the AI Search Results With <span class="hl">Karma HQ</span></h2>
+      <p>We promote your brand on community forums with our expert marketing services.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card">
+        <div class="svc-icon-box">💬</div>
+        <h3>Reddit Marketing</h3>
+        <p class="svc-desc">Reddit values authenticity; that's why we market with a community-first strategy to build credibility and boost traffic.</p>
+        <ul class="svc-ul">
+          <li>Researching &amp; targeting subreddits</li>
+          <li>Finding good threads to post in</li>
+          <li>Posting questions and helpful comments</li>
+          <li>Brand mentions during organic conversations</li>
+          <li>Reddit reputation management</li>
+          <li>Increase upvotes and engagement</li>
+        </ul>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon-box">❓</div>
+        <h3>Quora Marketing</h3>
+        <p class="svc-desc">Quora continues to be a top-tier platform for answering buyer intent questions to improve visibility in search engines.</p>
+        <ul class="svc-ul">
+          <li>Performing question and keyword research</li>
+          <li>Building an authoritative account</li>
+          <li>Generating high-value answers</li>
+          <li>Integrating brand mentions</li>
+          <li>Placing links within useful responses</li>
+          <li>Building brand authority and credibility</li>
+        </ul>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon-box">⚡</div>
+        <h3>AI Visibility Optimization</h3>
+        <p class="svc-desc">Karma HQ optimizes online presence by building an expansive network of trusted discussions on Reddit and Quora.</p>
+        <ul class="svc-ul">
+          <li>Creating more brand mentions</li>
+          <li>Positioning your brand strongly</li>
+          <li>Creating patterns of recommendations</li>
+          <li>Signalling authority over discussion topics</li>
+          <li>Increasing visibility through conversational searches</li>
+          <li>Boosting brand credibility score</li>
+        </ul>
+      </div>
+    </div>
+    <div class="stats-bar">
+      <div class="stats-bar-row">
+        <div class="sbi"><div class="sbi-n">97%</div><div class="sbi-l">Customer Satisfaction</div></div>
+        <div class="sbi"><div class="sbi-n">550+</div><div class="sbi-l">Campaigns Managed</div></div>
+        <div class="sbi"><div class="sbi-n">20K+</div><div class="sbi-l">Brand Mentions</div></div>
+        <div class="sbi"><div class="sbi-n">91%</div><div class="sbi-l">AI Visibility</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS (Home section - 4 steps) -->
+  <section class="hiw-home">
+    <div class="hiw-home-inner">
+      <div style="text-align:center;margin-bottom:48px;">
+        <div class="obadge" style="margin-bottom:14px;">How It Works</div>
+        <h2 style="font-family:'Outfit';font-size:clamp(26px,3.5vw,40px);font-weight:900;color:#111827;margin-bottom:10px;">How We Help Brands Boost Their AI Presence</h2>
+        <p style="color:#9ca3af;font-size:15px;max-width:560px;margin:0 auto;line-height:1.7;">Karma HQ is greatly focused on improving your overall brand visibility by growing a consistent, authentic presence on AI-preferred community forums.</p>
+      </div>
+      <div class="hiw-4grid">
+        <div class="hiw-card">
+          <div>
+            <div class="hiw-card-icon">🔍</div>
+            <div class="step-pill">Step 1</div>
+            <h3>Research &amp; Map Your Audience</h3>
+            <p>We perform a detailed analysis of your target market and monitor high-intent conversations your potential customers are participating in.</p>
+          </div>
+        </div>
+        <div class="hiw-card">
+          <div>
+            <div class="hiw-card-icon">💬</div>
+            <div class="step-pill">Step 2</div>
+            <h3>Create a Conversation Strategy</h3>
+            <p>We create a conversation strategy focused on having an open discussion where we naturally introduce your brand as the perfect choice.</p>
+          </div>
+        </div>
+        <div class="hiw-card">
+          <div>
+            <div class="hiw-card-icon">👥</div>
+            <div class="step-pill">Step 3</div>
+            <h3>Participate in Forum Threads</h3>
+            <p>To create a natural flow of conversation, we participate in discussions to boost real customer engagement and build credibility.</p>
+          </div>
+        </div>
+        <div class="hiw-card">
+          <div>
+            <div class="hiw-card-icon">📈</div>
+            <div class="step-pill">Step 4</div>
+            <h3>Increase Brand Visibility</h3>
+            <p>We focus on ongoing engagement, maintaining the success of your campaign over time, and continually increasing your brand visibility.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testi-sec">
+    <div class="testi-hd">
+      <div class="obadge" style="margin-bottom:14px;">Testimonials</div>
+      <h2 style="font-family:'Outfit';font-size:clamp(26px,3.5vw,38px);font-weight:900;color:#111827;margin-bottom:10px;">Our Clients Speak of Our Reputation</h2>
+      <p style="font-size:15px;color:#6b7280;">Don't just go with what we are claiming; check what our clients say!</p>
+    </div>
+    <div style="overflow:hidden;margin-bottom:12px;"><div class="mrow" id="trow1"></div></div>
+    <div style="overflow:hidden;"><div class="mrow rev" id="trow2"></div></div>
+  </section>
+
+  <!-- GET STARTED FORM -->
+  <section class="gsf-sec">
+    <h2 class="gsf-title">Share Your Brand Details</h2>
+    <p class="gsf-sub">We'll analyze Reddit and Quora opportunities specifically for your brand and grow your AI visibility.</p>
+    <div class="gsf-grid">
+      <div>
+        <p class="gsf-plans-title">Choose Your Plan</p>
+        <p class="gsf-plans-desc">Select the plan that fits your brand's needs and goals.</p>
+        <div class="plan-stack">
+          <div class="plan-card-a free">
+            <div class="pca-name">🆓 Free Plan</div>
+            <div class="pca-desc">Basic Reddit Audit Report — brand overview + opportunities</div>
+            <div class="pca-pricing">
+              <div class="pca-row"><span>Per Comment</span><span>$10</span></div>
+              <div class="pca-row"><span>Per Post</span><span>$25</span></div>
+              <div class="pca-row"><span>Per Upvote</span><span>$0.3</span></div>
+              <div class="pca-row"><span>Per Downvote</span><span>$0.3</span></div>
+            </div>
+            <ul class="pca-feats">
+              <li>Basic Reddit Audit Report</li>
+              <li>Brand overview analysis</li>
+              <li>Opportunity identification</li>
+              <li>Email support</li>
+            </ul>
+            <button class="pca-btn pca-btn-orange" onclick="showPage('contact')">Get Started →</button>
+          </div>
+          <div class="plan-card-a pro">
+            <div class="plan-pop">Most Popular</div>
+            <div class="pca-name">🚀 Pro Plan</div>
+            <div class="pca-desc">Detailed Reddit Audit Report — in-depth analysis + strategy</div>
+            <div class="pca-pricing">
+              <div class="pca-row"><span>Per Comment</span><span>$8</span></div>
+              <div class="pca-row"><span>Per Post</span><span>$20</span></div>
+              <div class="pca-row"><span>Per Upvote</span><span>$0.1</span></div>
+              <div class="pca-row"><span>Per Downvote</span><span>$0.1</span></div>
+            </div>
+            <ul class="pca-feats">
+              <li>Detailed Reddit Audit Report</li>
+              <li>In-depth analysis &amp; strategy</li>
+              <li>Competitor analysis</li>
+              <li>Custom subreddit strategy</li>
+              <li>Priority support</li>
+              <li>Weekly performance reports</li>
+            </ul>
+            <button class="pca-btn pca-btn-white" onclick="showPage('contact')">Get Started →</button>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="form-box" id="formBoxHome">
+          <h3>Share your brand details</h3>
+          <p class="fb-sub">We'll analyze Reddit opportunities specifically for your brand.</p>
+          <form onsubmit="submitForm(event,'formBoxHome')">
+            <div class="form-row2">
+              <div class="fg"><label class="flabel">Full Name *</label><input class="finput" placeholder="Your name" required/></div>
+              <div class="fg"><label class="flabel">Email *</label><input class="finput" type="email" placeholder="you@company.com" required/></div>
+            </div>
+            <div class="form-row2">
+              <div class="fg"><label class="flabel">Website URL</label><input class="finput" placeholder="https://yoursite.com"/></div>
+              <div class="fg"><label class="flabel">Phone (optional)</label><input class="finput" placeholder="+1 (555) 000-0000"/></div>
+            </div>
+            <div class="fg"><label class="flabel">Brand Details *</label><textarea class="ftextarea" placeholder="Tell us about your brand..." required></textarea></div>
+            <button type="submit" class="fsubmit">Analyze My Reddit Opportunity →</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page-home -->
+
+<!-- ═══════════════ PAGE: ABOUT ═══════════════ -->
+<div class="page" id="page-about">
+  <section class="about-hero-sec">
+    <div class="obadge" style="margin-bottom:16px;">ABOUT US</div>
+    <h1>We Help Brands Win<br/><span>on Reddit &amp; AI Search</span></h1>
+    <p>KarmaHQ is the leading Reddit marketing platform that helps businesses grow brand visibility, drive organic traffic, and dominate AI search results.</p>
+  </section>
+  <section class="stats-dark-bar">
+    <div class="stats-dark-grid">
+      <div class="stats-dark-item"><div class="sdi-n">4<span>+</span></div><div class="sdi-l">Years Experience</div></div>
+      <div class="stats-dark-item"><div class="sdi-n">500<span>+</span></div><div class="sdi-l">Campaigns</div></div>
+      <div class="stats-dark-item"><div class="sdi-n">10K<span>+</span></div><div class="sdi-l">Mentions</div></div>
+      <div class="stats-dark-item"><div class="sdi-n">50<span>+</span></div><div class="sdi-l">Brands</div></div>
+    </div>
+  </section>
+  <section class="section" style="background:#fff;">
+    <div class="story-wrap">
+      <div>
+        <h2 style="font-family:'Outfit';font-size:32px;font-weight:900;color:#111827;margin-bottom:18px;">Our Story</h2>
+        <p style="color:#6b7280;font-size:14px;line-height:1.8;margin-bottom:12px;">KarmaHQ was born from frustration. Our founders were running Reddit marketing campaigns manually — buying karma accounts, managing IPs, warm-up periods — and it was exhausting.</p>
+        <p style="color:#6b7280;font-size:14px;line-height:1.8;margin-bottom:12px;">When Reddit's traffic exploded from 60M to 1.1B monthly visitors, and AI models started citing Reddit as their #1 source, we knew the opportunity was massive.</p>
+        <p style="color:#6b7280;font-size:14px;line-height:1.8;">So we built KarmaHQ — the software that makes all of this easy, scalable, and authentic.</p>
+      </div>
+      <div>
+        <div class="timeline-box">
+          <h3 style="font-size:14px;font-weight:700;color:#111827;margin-bottom:18px;">Our Journey</h3>
+          <div class="t-row"><div class="t-yr">2020</div><div class="t-ln"></div><div class="t-ev">KarmaHQ founded</div></div>
+          <div class="t-row"><div class="t-yr">2021</div><div class="t-ln"></div><div class="t-ev">First 10 brand campaigns launched</div></div>
+          <div class="t-row"><div class="t-yr">2022</div><div class="t-ln"></div><div class="t-ev">500+ campaigns executed milestone</div></div>
+          <div class="t-row"><div class="t-yr">2023</div><div class="t-ln"></div><div class="t-ev">Reddit traffic explosion</div></div>
+          <div class="t-row" style="margin-bottom:0;"><div class="t-yr">2024</div><div class="t-ln"></div><div class="t-ev">50+ brands, 10,000+ mentions</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section" style="background:#f9fafb;">
+    <div class="container">
+      <h2 style="font-family:'Outfit';font-size:clamp(24px,3.5vw,38px);font-weight:900;color:#111827;text-align:center;margin-bottom:30px;">Our Values</h2>
+      <div class="vals-grid" style="max-width:900px;margin:0 auto;">
+        <div class="val-card"><div class="val-icon">🎯</div><h3>Mission-driven</h3><p>We exist to help brands tap into the most authentic traffic source on the internet — Reddit.</p></div>
+        <div class="val-card"><div class="val-icon">👥</div><h3>Community first</h3><p>We believe in genuine engagement, not spam. Every reply we craft respects the Reddit community.</p></div>
+        <div class="val-card"><div class="val-icon">⚡</div><h3>Speed &amp; scale</h3><p>Our software lets you move fast without sacrificing quality or authenticity.</p></div>
+        <div class="val-card"><div class="val-icon">🏆</div><h3>Proven results</h3><p>50+ brands served, 10,000+ mentions deployed, and countless #1 rankings achieved.</p></div>
+      </div>
+    </div>
+  </section>
+  <div class="cta-banner">
+    <h2>Ready to Dominate AI Search?</h2>
+    <p>Join 50+ brands already growing with KarmaHQ's Reddit and Quora marketing platform.</p>
+    <button class="btn-orange" style="padding:14px 32px;font-size:15px;" onclick="showPage('contact')">Get Started Now →</button>
+  </div>
+</div>
+
+<!-- ═══════════════ PAGE: HOW IT WORKS (5 steps) ═══════════════ -->
+<div class="page" id="page-hiw">
+  <section class="hiw-page-hero">
+    <div class="obadge" style="margin-bottom:16px;">HOW IT WORKS</div>
+    <h1 style="font-family:'Outfit';font-size:clamp(32px,6vw,64px);font-weight:900;color:#111827;letter-spacing:-2px;margin-bottom:14px;">From invisible to recommended</h1>
+    <p style="font-size:16px;color:#6b7280;max-width:460px;margin:0 auto;line-height:1.7;">KarmaHQ turns AI search from a mystery into a strategy — in 5 simple steps.</p>
+  </section>
+  <div class="hiw-page-inner">
+    <div class="hiw5-grid">
+      <div class="hiw5-card">
+        <div class="hiw5-num">01</div>
+        <div>
+          <div class="hiw5-emoji">🔗</div>
+          <h3>Connect Your Brand</h3>
+          <p>Add your brand name, website, and key competitors. KarmaHQ starts tracking immediately across all major AI models.</p>
+        </div>
+      </div>
+      <div class="hiw5-card">
+        <div class="hiw5-num">02</div>
+        <div>
+          <div class="hiw5-emoji">📊</div>
+          <h3>Track AI Visibility</h3>
+          <p>See exactly how AI models like ChatGPT, Perplexity, and Gemini mention (or ignore) your brand. Get your AI Visibility Score.</p>
+        </div>
+      </div>
+      <div class="hiw5-card">
+        <div class="hiw5-num">03</div>
+        <div>
+          <div class="hiw5-emoji">🔍</div>
+          <h3>Discover Opportunities</h3>
+          <p>Find conversations on Reddit, Quora, and forums where AI pulls its answers — and where your brand should be mentioned.</p>
+        </div>
+      </div>
+      <div class="hiw5-card">
+        <div class="hiw5-num">04</div>
+        <div>
+          <div class="hiw5-emoji">💬</div>
+          <h3>Engage &amp; Get Mentioned</h3>
+          <p>Use our Engagement Engine to participate in those key conversations authentically, getting your brand into AI-cited sources.</p>
+        </div>
+      </div>
+      <div class="hiw5-card hiw5-full">
+        <div class="hiw5-num">05</div>
+        <div>
+          <div class="hiw5-emoji">🚀</div>
+          <h3>Watch Rankings Rise</h3>
+          <p>Monitor your AI Visibility Score improve as more AI models start recommending your brand over competitors.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cta-banner">
+    <h2>Ready to Start?</h2>
+    <p>Join hundreds of brands already growing their AI search visibility with KarmaHQ.</p>
+    <button class="btn-orange" style="padding:14px 32px;font-size:15px;" onclick="showPage('contact')">Get Started Now →</button>
+  </div>
+</div>
+
+<!-- ═══════════════ PAGE: PRICING ═══════════════ -->
+<div class="page" id="page-pricing">
+  <section class="pricing-hero">
+    <div class="pricing-badge">PRICING</div>
+    <h1>Simple, transparent pricing</h1>
+    <p>To get started, simply share your website or brand details, and we will analyze opportunities for growth on Reddit.</p>
+  </section>
+  <section style="padding:0 24px 40px;background:#fff;">
+    <div class="plans-grid-p">
+      <div class="plan-p">
+        <div class="plan-p-name">🆓 Free Plan</div>
+        <div class="plan-p-desc">Basic Reddit Audit Report — brand overview + opportunities</div>
+        <div class="plan-p-pricing">
+          <div class="plan-p-pricing-lbl">Pricing</div>
+          <div class="plan-p-row"><span>Per Comment</span><span>$10</span></div>
+          <div class="plan-p-row"><span>Per Post</span><span>$25</span></div>
+          <div class="plan-p-row"><span>Per Upvote</span><span>$0.3</span></div>
+          <div class="plan-p-row"><span>Per Downvote</span><span>$0.3</span></div>
+        </div>
+        <ul class="plan-p-feats">
+          <li><span class="chk">✓</span>Basic Reddit Audit Report</li>
+          <li><span class="chk">✓</span>Brand overview analysis</li>
+          <li><span class="chk">✓</span>Opportunity identification</li>
+          <li><span class="chk">✓</span>Email support</li>
+        </ul>
+        <button class="plan-p-btn orange" onclick="showPage('contact')">Get Started →</button>
+      </div>
+      <div class="plan-p" style="position:relative;">
+        <div class="plan-p-badge">Most Popular</div>
+        <div class="plan-p-name">🚀 Pro Plan</div>
+        <div class="plan-p-desc">Detailed Reddit Audit Report — in-depth analysis + strategy</div>
+        <div class="plan-p-pricing">
+          <div class="plan-p-pricing-lbl">Pricing</div>
+          <div class="plan-p-row"><span>Per Comment</span><span>$8</span></div>
+          <div class="plan-p-row"><span>Per Post</span><span>$20</span></div>
+          <div class="plan-p-row"><span>Per Upvote</span><span>$0.1</span></div>
+          <div class="plan-p-row"><span>Per Downvote</span><span>$0.1</span></div>
+        </div>
+        <ul class="plan-p-feats">
+          <li><span class="chk">✓</span>Detailed Reddit Audit Report</li>
+          <li><span class="chk">✓</span>In-depth analysis &amp; strategy</li>
+          <li><span class="chk">✓</span>Competitor analysis</li>
+          <li><span class="chk">✓</span>Custom subreddit strategy</li>
+          <li><span class="chk">✓</span>Priority support</li>
+          <li><span class="chk">✓</span>Weekly performance reports</li>
+        </ul>
+        <button class="plan-p-btn white" onclick="showPage('contact')">Get Started →</button>
+      </div>
+    </div>
+    <div class="pricing-cta">
+      <h3>We Also Provide Custom Marketing Packages!</h3>
+      <p>To get started, simply share your website or brand details, and we will analyze your growth opportunities on Reddit and Quora.</p>
+      <button class="btn-orange" onclick="showPage('contact')">Contact Us for More Details →</button>
+    </div>
+  </section>
+  <section class="faq-sec-p">
+    <div class="container">
+      <h2 style="font-family:'Outfit';font-size:clamp(22px,3vw,34px);font-weight:900;color:#111827;text-align:center;margin-bottom:28px;">Frequently Asked Questions</h2>
+      <div class="faq-grid">
+        <div class="faq-box"><h4>What's included in the Free Audit?</h4><p>The Free Plan gives you a basic Reddit Audit Report including brand overview and growth opportunities on Reddit.</p></div>
+        <div class="faq-box"><h4>How does the Pro Plan differ?</h4><p>Pro includes a detailed, in-depth analysis with a full Reddit marketing strategy, competitor research, and weekly reports.</p></div>
+        <div class="faq-box"><h4>How is billing calculated?</h4><p>You pay per action — per comment, post, upvote, or downvote. Pro Plan rates are significantly lower than Free.</p></div>
+        <div class="faq-box"><h4>How do I get started?</h4><p>Simply fill out our form with your website/brand details and our team will analyze your Reddit opportunities.</p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════ PAGE: CONTACT ═══════════════ -->
+<div class="page" id="page-contact">
+  <section class="contact-hero-sec">
+    <div class="obadge" style="margin-bottom:14px;">GET STARTED</div>
+    <h1>Analyze Your Reddit Opportunity</h1>
+    <p>Share your website or brand details and we will analyze your growth opportunities.</p>
+  </section>
+  <div class="contact-grid">
+    <div>
+      <p class="c-info-title">Contact Information</p>
+      <div class="c-row"><div class="c-ico">📧</div><div><div class="c-lbl">Email us at</div><div class="c-val">hello@karmahq.com</div></div></div>
+      <div class="c-row"><div class="c-ico">📞</div><div><div class="c-lbl">Call us at</div><div class="c-val">+1 (555) 000-0000</div></div></div>
+      <div class="c-row"><div class="c-ico">📍</div><div><div class="c-lbl">Find us at</div><div class="c-val">San Francisco, CA</div></div></div>
+      <div class="chat-dark-box">
+        <h4>💬 Prefer to chat?</h4>
+        <p>Use the chat widget in the bottom right corner. Our team typically replies under 3 hours.</p>
+        <div class="resp-row"><div class="green-dot"></div><span style="font-size:12px;color:rgba(255,255,255,.5);">Typically replies under 3 hours</span></div>
+      </div>
+    </div>
+    <div class="form-box" id="contactFormBox">
+      <h3>Share your brand details</h3>
+      <p class="fb-sub">We'll analyze Reddit opportunities specifically for your brand.</p>
+      <form onsubmit="submitForm(event,'contactFormBox')">
+        <div class="form-row2">
+          <div class="fg"><label class="flabel">Full Name *</label><input class="finput" placeholder="Your name" required/></div>
+          <div class="fg"><label class="flabel">Email *</label><input class="finput" type="email" placeholder="you@company.com" required/></div>
+        </div>
+        <div class="form-row2">
+          <div class="fg"><label class="flabel">Website URL</label><input class="finput" placeholder="https://yoursite.com"/></div>
+          <div class="fg"><label class="flabel">Phone (optional)</label><input class="finput" placeholder="+1 (555) 000-0000"/></div>
+        </div>
+        <div class="fg"><label class="flabel">Brand Details *</label><textarea class="ftextarea" placeholder="Tell us about your brand..." required></textarea></div>
+        <button type="submit" class="fsubmit">Analyze My Reddit Opportunity →</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="cursor:pointer;" onclick="showPage('home')">
+          <div class="logo-k">K</div>Karma<span class="logo-hq">HQ</span>
+        </div>
+        <p>Karma HQ is a leading online forum marketing agency focusing on Reddit and Quora marketing services to help brands gain better AI search visibility and conversions.</p>
+        <a href="mailto:hello@karmahq.com">📧 hello@karmahq.com</a>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a onclick="showPage('hiw')">Reddit Marketing</a></li>
+          <li><a onclick="showPage('hiw')">Quora Marketing</a></li>
+          <li><a onclick="showPage('hiw')">AI Visibility</a></li>
+          <li><a onclick="showPage('pricing')">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a onclick="showPage('about')">About</a></li>
+          <li><a onclick="showPage('contact')">Contact</a></li>
+          <li><a onclick="showPage('home')">Home</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#" target="_blank">Twitter / X</a></li>
+          <li><a href="#" target="_blank">LinkedIn</a></li>
+          <li><a href="#" target="_blank">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <p>© 2026 Karma HQ. All rights reserved.</p>
+      <div class="footer-bot-links">
+        <a onclick="showPage('home')">Terms</a>
+        <a onclick="showPage('home')">Privacy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════ CHAT WIDGET (exact React app style) ═══════════════ -->
+<!-- Bubble -->
+<div class="chat-bubble" id="chatBubble">
+  <button class="chat-bubble-close" onclick="document.getElementById('chatBubble').style.display='none'">✕</button>
+  <p>👋 To get started, share your website or brand details!</p>
+</div>
+<!-- Panel -->
+<div class="chat-panel" id="chatPanel">
+  <div class="chat-hdr">
+    <div class="chat-hdr-left">
+      <div class="chat-av">K</div>
+      <div>
+        <div class="chat-nm">KarmaHQ</div>
+        <div class="chat-st"><span class="chat-st-dot"></span> Typically replies under 3 hours.</div>
+      </div>
+    </div>
+    <button class="chat-hdr-close" onclick="toggleChat()">⌄</button>
+  </div>
+  <div class="chat-intro" id="chatIntro">
+    <p>Quick intro (optional)</p>
+    <div class="chat-intro-row">
+      <input id="chatName" placeholder="Name"/>
+      <input id="chatEmail" placeholder="Email"/>
+    </div>
+  </div>
+  <div class="chat-msgs-area" id="chatMsgs">
+    <div class="chat-msg-row bot">
+      <div class="chat-av-sm">K</div>
+      <div class="msg-bubble bot">Hello! How can I help you? 😊</div>
+    </div>
+    <div class="chat-msg-row bot">
+      <div class="chat-av-sm">K</div>
+      <div class="msg-bubble bot">To get started, simply share your website or brand details, and we will analyze opportunities for growth on Reddit.</div>
+    </div>
+  </div>
+  <div class="chat-inp-row">
+    <div class="chat-inp-wrap">
+      <input class="chat-inp" id="chatInput" placeholder="Compose your message..." onkeydown="if(event.key==='Enter')sendChat()"/>
+      <button class="chat-send-btn" onclick="sendChat()">➤</button>
+    </div>
+    <p class="chat-footer">Powered by KarmaHQ</p>
+  </div>
+</div>
+<!-- Toggle button — teal like React app -->
+<button class="chat-toggle" id="chatToggle" onclick="toggleChat()">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<script>
+// ── TESTIMONIALS ────────────────────────────────────────────────────
+var testimonials=[
+  {name:"Marcus A",role:"eCom",text:'"I\'ve never seen such huge ROAS anywhere else. Over $1M extra revenue since January."'},
+  {name:"Michal H",role:"Red-engage",text:'"The tool made our work so much easier. Great results with less effort."'},
+  {name:"Adrina W",role:"App",text:'"Our app launched 4 months ago and LLM rankings have driven more traffic than paid ads."'},
+  {name:"James K",role:"SaaS Founder",text:'"Within 3 weeks, our brand started appearing in AI search results. Incredible ROI."'},
+  {name:"Sarah L",role:"Marketing Director",text:'"KarmaHQ transformed how we approach Reddit marketing. Replies feel so natural."'},
+  {name:"David R",role:"Growth Lead",text:'"This tool is the missing piece for any company serious about Reddit growth."'},
+  {name:"Priya M",role:"Brand Manager",text:'"Our brand visibility on AI search improved dramatically in just one month."'},
+  {name:"Tom B",role:"Startup Founder",text:'"Best investment we\'ve made for organic growth. The Reddit strategy is genius."'}
+];
+function tc(t){return '<div class="testi-card"><div class="stars">★★★★★</div><p>'+t.text+'</p><div class="testi-author"><div class="testi-av">'+t.name[0]+'</div><div><div class="testi-name">'+t.name+'</div><div class="testi-role">'+t.role+'</div></div></div></div>';}
+function buildTestimonials(){
+  var h=Math.ceil(testimonials.length/2);
+  var r1=testimonials.slice(0,h),r2=testimonials.slice(h);
+  var t1=document.getElementById('trow1');if(t1)t1.innerHTML=[...r1,...r1,...r1].map(tc).join('');
+  var t2=document.getElementById('trow2');if(t2)t2.innerHTML=[...r2,...r2,...r2].map(tc).join('');
+}
+
+// ── PAGE ROUTING ────────────────────────────────────────────────────
+function showPage(id){
+  document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});
+  var pg=document.getElementById('page-'+id);if(pg)pg.classList.add('active');
+  window.scrollTo(0,0);
+  document.querySelectorAll('.nav-links a').forEach(function(a,i){
+    var pages=['about','hiw','pricing','contact'];
+    a.classList.toggle('active',pages[i]===id);
+  });
+}
+function closeMob(){document.getElementById('mobMenu').classList.remove('open');}
+
+// ── FORMS ────────────────────────────────────────────────────────────
+function submitForm(e,boxId){
+  e.preventDefault();
+  var btn=e.target.querySelector('.fsubmit');if(!btn)return;
+  btn.textContent='Submitting...';btn.disabled=true;
+  setTimeout(function(){
+    var box=document.getElementById(boxId);
+    if(box)box.innerHTML='<div style="text-align:center;padding:48px 20px;"><div style="width:60px;height:60px;background:#d1fae5;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:26px;">✓</div><h3 style="font-family:Outfit;font-size:22px;font-weight:900;color:#111827;margin-bottom:8px;">We\'re on it!</h3><p style="font-size:14px;color:#6b7280;line-height:1.6;">Your information has been received. Our team will analyze your Reddit opportunities and get back to you within 24 hours.</p></div>';
+  },800);
+}
+
+// ── CHAT WIDGET ──────────────────────────────────────────────────────
+var chatOpen=false;
+var botReplies=[
+  "Thanks for sharing! Our team will analyze your Reddit opportunities and get back to you shortly.",
+  "Great question! KarmaHQ helps brands grow on Reddit through authentic engagement. Would you like to know more about our plans?",
+  "We'd love to help! Please fill out the form on our page, or I can pass along your message to our team.",
+  "Our Free Plan starts with a basic Reddit Audit Report. The Pro Plan gives you a detailed analysis + strategy. Which sounds right for you?"
+];
+function toggleChat(){
+  chatOpen=!chatOpen;
+  var panel=document.getElementById('chatPanel');
+  var bubble=document.getElementById('chatBubble');
+  if(chatOpen){
+    panel.classList.add('open');
+    if(bubble)bubble.style.display='none';
+    var toggle=document.getElementById('chatToggle');
+    if(toggle)toggle.innerHTML='<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg>';
+  } else {
+    panel.classList.remove('open');
+    var toggle=document.getElementById('chatToggle');
+    if(toggle)toggle.innerHTML='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  }
+}
+function sendChat(){
+  var inp=document.getElementById('chatInput'),msg=inp.value.trim();if(!msg)return;
+  var msgs=document.getElementById('chatMsgs');
+  msgs.innerHTML+='<div class="chat-msg-row user"><div class="msg-bubble user">'+msg+'</div></div>';
+  inp.value='';msgs.scrollTop=msgs.scrollHeight;
+  // hide intro bar after first message
+  var intro=document.getElementById('chatIntro');if(intro)intro.style.display='none';
+  setTimeout(function(){
+    msgs.innerHTML+='<div class="chat-msg-row bot"><div class="chat-av-sm">K</div><div class="msg-bubble bot">'+botReplies[Math.floor(Math.random()*botReplies.length)]+'</div></div>';
+    msgs.scrollTop=msgs.scrollHeight;
+  },1200);
+}
+// Show bubble after 3s
+setTimeout(function(){
+  var b=document.getElementById('chatBubble');
+  if(b&&!chatOpen)b.style.display='block';
+},3000);
+document.getElementById('chatBubble').style.display='none';
+
+// ── INIT ─────────────────────────────────────────────────────────────
+window.onload=function(){buildTestimonials();};
+</script>
+</body>
+</html>
