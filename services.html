@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Services | Karma HQ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    :root { --orange: #FF6201; --dark: #111827; --grey: #6b7280; --light: #f3f4f6; }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; color: var(--dark); line-height: 1.6; background-color: #fff; }
+    
+    /* Global Underline Fix */
+    a { text-decoration: none !important; }
+
+    /* --- NAVIGATION (Exact as previous) --- */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0,0,0,0.05); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 72px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 4px; font-family: 'Outfit', sans-serif; font-size: 22px; font-weight: 900; }
+    .logo-inf { color: var(--orange); }
+    .logo-hq { color: var(--orange); }
+    .nav-links { display: flex; gap: 30px; }
+    .nav-links a { color: var(--grey); font-weight: 500; font-size: 14px; transition: 0.2s; }
+    .nav-links a:hover { color: var(--orange); }
+    .nav-actions { display: flex; align-items: center; gap: 24px; }
+    .btn-login { color: #4b5563; font-weight: 600; font-size: 15px; }
+    .btn-orange { background: var(--orange); color: #fff; padding: 12px 24px; border-radius: 999px; font-weight: 700; border: none; cursor: pointer; }
+
+    /* --- SERVICES SECTION --- */
+    .services-hero { padding: 140px 24px 60px; text-align: center; background: radial-gradient(circle at top, #fff0e8 0%, #fff 100%); }
+    .services-hero h1 { font-family: 'Outfit', sans-serif; font-size: 48px; font-weight: 900; margin-bottom: 16px; letter-spacing: -1px; }
+    .services-hero p { color: var(--grey); font-size: 18px; max-width: 600px; margin: 0 auto; }
+
+    .sec-padding { padding: 80px 24px; }
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    .services-grid { 
+        display: grid; 
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+        gap: 30px; 
+    }
+
+    /* Card Styling (As per Image) */
+    .s-card { 
+        background: #fff; 
+        border: 1px solid #e5e7eb; 
+        border-radius: 24px; 
+        padding: 40px; 
+        display: flex; 
+        flex-direction: column; 
+        transition: 0.3s ease;
+    }
+    .s-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); border-color: var(--orange); }
+
+    .s-icon-box { 
+        width: 48px; height: 48px; border-radius: 12px; 
+        display: flex; align-items: center; justify-content: center; 
+        font-size: 20px; margin-bottom: 24px; border: 1px solid #eee;
+        background: #f9fafb;
+    }
+
+    .s-card h3 { font-family: 'Outfit', sans-serif; font-size: 24px; margin-bottom: 16px; color: var(--dark); }
+    .s-card p { font-size: 15px; color: var(--grey); margin-bottom: 24px; line-height: 1.6; }
+
+    .s-list { list-style: none; margin-bottom: 32px; flex-grow: 1; }
+    .s-list li { 
+        font-size: 14px; color: #4b5563; margin-bottom: 12px; 
+        padding-left: 24px; position: relative; 
+    }
+    .s-list li::before { 
+        content: "•"; color: var(--orange); position: absolute; 
+        left: 0; font-size: 24px; line-height: 1; top: -2px;
+    }
+
+    .btn-learn { 
+        display: inline-block; padding: 12px 0; border-top: 1px solid #eee; 
+        color: var(--orange); font-weight: 700; font-size: 14px; text-align: center;
+    }
+/* ── MOBILE MENU (Exact Same) ── */
+.mobile-menu-btn{display:none;background:#f3f4f6;border:1px solid #d1d5db;border-radius:6px;padding:4px 8px;cursor:pointer;}
+.mobile-menu{display:none;flex-direction:column;background:#fff;width:100%;padding:0 24px;position:absolute;top:70px;left:0;z-index:1000;border-bottom:1px solid #eee;}
+/* Mobile menu links ke niche se line hatane ke liye */
+.mobile-menu a {
+    padding: 18px 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: #6b7280;
+    border-bottom: 1px solid #f3f4f6; /* Yeh separator line hai */
+    text-decoration: none !important; /* Yeh text ke niche ki blue line hatayega */
+    display: block;
+    text-transform: capitalize;
+}/* ── FOOTER UPDATED ── */
+footer {
+    background: #111827;
+    color: #fff;
+    padding: 60px 24px 30px;
+    margin-top: 80px;
+}
+.footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.footer-brand p {
+    font-size: 13px;
+    color: rgba(255,255,255,.4);
+    line-height: 1.7;
+    margin: 15px 0;
+}
+.footer-col h4 {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: rgba(255,255,255,.3);
+    margin-bottom: 16px;
+}
+.footer-col ul {
+    list-style: none;
+}
+.footer-col li {
+    margin-bottom: 10px;
+}
+.footer-col a {
+    font-size: 14px;
+    color: rgba(255,255,255,.4);
+    text-decoration: none; /* ← Isse footer links ki underline hat jayegi */
+    transition: color 0.3s;
+}
+.footer-col a:hover {
+    color: #fff; /* Hover karne par text white hoga */
+}
+.footer-bot {
+    padding-top: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: rgba(255,255,255,.2);
+}
+.mobile-menu.active{display:flex;}
+
+@media (max-width: 900px){
+    .desktop-only{display:none !important;}
+    .mobile-menu-btn{display:block;}
+    .grid-2{grid-template-columns:1fr;gap:40px;}
+    .cta-box{padding:40px 20px;}
+}
+
+/* ── FOOTER UPDATED ── */
+footer {
+    background: #111827;
+    color: #fff;
+    padding: 60px 24px 30px;
+    margin-top: 80px;
+}
+.footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.footer-brand p {
+    font-size: 13px;
+    color: rgba(255,255,255,.4);
+    line-height: 1.7;
+    margin: 15px 0;
+}
+.footer-col h4 {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: rgba(255,255,255,.3);
+    margin-bottom: 16px;
+}
+.footer-col ul {
+    list-style: none;
+}
+.footer-col li {
+    margin-bottom: 10px;
+}
+.footer-col a {
+    font-size: 14px;
+    color: rgba(255,255,255,.4);
+    text-decoration: none; /* ← Isse footer links ki underline hat jayegi */
+    transition: color 0.3s;
+}
+.footer-col a:hover {
+    color: #fff; /* Hover karne par text white hoga */
+}
+.footer-bot {
+    padding-top: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: rgba(255,255,255,.2);
+}
+    @media (max-width: 768px) {
+        .nav-links, .nav-actions { display: none; }
+        .services-hero h1 { font-size: 36px; }
+    }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-logo"><span class="logo-inf">∞</span> Karma<span class="logo-hq">HQ</span></div>
+    <div class="nav-links">
+      <a href="#">About</a>
+      <a href="#">How It Works</a>
+      <a href="#">Pricing</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <a href="#" class="btn-login">Login</a>
+      <button class="btn-orange">Get Started For Free →</button>
+    </div>
+  </div>
+</nav>
+
+<header class="services-hero">
+  <div class="container">
+    <h1>Our Marketing Services</h1>
+    <p>Empowering brands through community-driven strategies and AI search dominance.</p>
+  </div>
+</header>
+
+<section class="sec-padding">
+  <div class="container">
+    <div class="services-grid">
+      
+      <!-- Reddit Marketing Card -->
+      <div class="s-card">
+        <div class="s-icon-box">💬</div>
+        <h3>Reddit Marketing</h3>
+        <p>Reddit values authenticity; that's why we market with a community-first strategy to build credibility and boost traffic.</p>
+        <ul class="s-list">
+          <li>Researching & targeting subreddits[cite: 1]</li>
+          <li>Finding good threads to post in[cite: 1]</li>
+          <li>Posting questions and helpful comments[cite: 1]</li>
+          <li>Brand mentions during organic conversations[cite: 1]</li>
+          <li>Reddit reputation management[cite: 1]</li>
+          <li>Increase upvotes and engagement[cite: 1]</li>
+        </ul>
+        <a href="reddit-marketing.html" class="btn-learn">Learn More About Reddit Marketing →</a>
+      </div>
+
+      <!-- Quora Marketing Card -->
+      <div class="s-card">
+        <div class="s-icon-box">❓</div>
+        <h3>Quora Marketing</h3>
+        <p>Quora continues to be a top-tier platform for answering buyer intent questions to improve visibility in search engines.[cite: 1]</p>
+        <ul class="s-list">
+          <li>Performing question and keyword research[cite: 1]</li>
+          <li>Building an authoritative account[cite: 1]</li>
+          <li>Generating high-value answers[cite: 1]</li>
+          <li>Integrating brand mentions[cite: 1]</li>
+          <li>Placing links within useful responses[cite: 1]</li>
+          <li>Building brand authority and credibility[cite: 1]</li>
+        </ul>
+        <a href="quora-marketing.html" class="btn-learn">Learn More About Quora Marketing →</a>
+      </div>
+
+      <!-- AI Visibility Card -->
+      <div class="s-card">
+        <div class="s-icon-box">⚡</div>
+        <h3>AI Visibility Optimization</h3>
+        <p>Karma HQ optimizes online presence by building an expansive network of trusted discussions on Reddit and Quora.[cite: 1]</p>
+        <ul class="s-list">
+          <li>Creating more brand mentions[cite: 1]</li>
+          <li>Positioning your brand strongly[cite: 1]</li>
+          <li>Creating patterns of recommendations[cite: 1]</li>
+          <li>Signalling authority over discussion topics[cite: 1]</li>
+          <li>Increasing visibility through conversational searches[cite: 1]</li>
+          <li>Boosting brand credibility score[cite: 1]</li>
+        </ul>
+        <a href="ai-visibility.html" class="btn-learn">Learn More About AI Visibility →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('active');
+}
+</script>
+
+</body>
+</html><footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="color:#fff;">
+          <span class="logo-inf"></span>KarmaHQ
+        </div>
+        <p>Karma HQ is a leading online forum marketing agency focusing on Reddit and Quora marketing services.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Reddit Marketing</a></li>
+          <li><a href="#">Quora Marketing</a></li>
+          <li><a href="#">AI Visibility</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Terms</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#">Twitter / X</a></li>
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <p>© 2026 Karma HQ. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
