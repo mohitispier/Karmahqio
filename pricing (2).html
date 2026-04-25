@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Pricing – KarmaHQ</title>
+<meta name="description" content="KarmaHQ pricing plans – transparent and customizable packages for AI search visibility."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;900&family=Inter:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;color:#111827;background:#fff;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+:root{--orange:#FF6201;--orange2:#F63E02;}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(255,255,255,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.06);}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{display:flex;align-items:center;gap:6px;font-family:'Outfit',sans-serif;font-size:20px;font-weight:900;color:#111827;cursor:pointer;text-decoration:none;}
+.logo-inf{color:var(--orange);font-size:22px;line-height:1;font-weight:900;}
+.logo-hq{color:var(--orange);}
+.nav-links{display:flex;align-items:center;gap:28px;}
+.nav-links a{font-size:14px;font-weight:500;color:#6b7280;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:#111827;}
+.nav-right{display:flex;align-items:center;gap:12px;}
+.btn-login{font-size:14px;font-weight:500;color:#6b7280;background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;}
+.btn-orange{background:var(--orange);color:#fff;border:none;padding:10px 22px;border-radius:999px;font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;}
+.btn-orange:hover{background:var(--orange2);}
+.mob-toggle{display:none;background:none;border:none;cursor:pointer;font-size:22px;color:#6b7280;}
+.mob-menu{display:none;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);padding:16px 24px 24px;position:fixed;top:64px;left:0;right:0;z-index:998;}
+.mob-menu.open{display:block;}
+.mob-menu a{display:block;padding:12px 0;border-bottom:1px solid rgba(0,0,0,.05);font-size:15px;font-weight:500;color:#6b7280;}
+
+/* PAGE WRAPPER */
+.page-wrap{padding-top:64px;}
+
+/* PRICING HERO */
+.pricing-hero{padding:72px 24px 48px;text-align:center;background:#fff;}
+.pricing-hero h1{font-family:'Outfit',sans-serif;font-size:clamp(28px,4.5vw,48px);font-weight:900;color:#111827;letter-spacing:-1.5px;line-height:1.1;margin-bottom:12px;}
+.pricing-hero p{font-size:16px;color:#9ca3af;max-width:520px;margin:0 auto;line-height:1.7;}
+.pricing-badge{display:inline-block;background:#ffdcd1;color:var(--orange);border-radius:999px;padding:5px 18px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px;}
+
+/* PLANS */
+.plans-grid-p{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:860px;margin:0 auto 40px;align-items:start;padding:0 24px;}
+.plan-p{background:#fff;color:#111827;border-radius:20px;padding:28px;position:relative;border:1.5px solid #e5e7eb;box-shadow:0 4px 20px rgba(0,0,0,.05);}
+.plan-p.pro{border-color:var(--orange);box-shadow:0 8px 32px rgba(255,98,1,.15);}
+.plan-p-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--orange);color:#fff;font-size:11px;font-weight:700;padding:4px 16px;border-radius:999px;white-space:nowrap;}
+.plan-p-name{font-family:'Outfit',sans-serif;font-size:22px;font-weight:900;color:#111827;margin-bottom:4px;}
+.plan-p-subdesc{font-size:13px;color:#9ca3af;margin-bottom:18px;line-height:1.5;}
+.plan-p-feats-section{margin-bottom:18px;}
+.plan-p-feats{list-style:none;margin-bottom:0;}
+.plan-p-feats li{display:flex;align-items:flex-start;gap:8px;font-size:13px;margin-bottom:7px;color:#374151;font-weight:500;}
+.plan-p-feats li .chk{width:18px;height:18px;border-radius:50%;border:2px solid var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--orange);font-size:10px;font-weight:900;margin-top:1px;}
+.plan-p-pricing{background:#f9fafb;border-radius:12px;padding:14px;margin-bottom:18px;}
+.plan-p-pricing-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#9ca3af;margin-bottom:10px;}
+.plan-p-pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.plan-p-cell{font-size:12px;color:#374151;}
+.plan-p-cell strong{color:var(--orange);font-weight:900;}
+.plan-p-btn{width:100%;padding:13px;border:none;border-radius:12px;font-size:14px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;margin-top:4px;}
+.plan-p-btn.white{background:#fff;color:var(--orange);border:2px solid var(--orange);}
+.plan-p-btn.white:hover{background:#fff0e8;}
+.plan-p-btn.orange{background:var(--orange);color:#fff;border:2px solid var(--orange);}
+.plan-p-btn.orange:hover{background:var(--orange2);}
+
+/* PRICING CTA */
+.pricing-cta{max-width:860px;margin:0 auto 60px;text-align:center;padding:40px;background:#f9fafb;border-radius:18px;border:1px solid #e5e7eb;margin-left:auto;margin-right:auto;}
+.pricing-cta-wrap{padding:0 24px;}
+.pricing-cta h3{font-family:'Outfit',sans-serif;font-size:22px;font-weight:900;color:#111827;margin-bottom:8px;}
+.pricing-cta p{font-size:14px;color:#9ca3af;margin-bottom:20px;}
+
+/* FAQ */
+.faq-sec-p{padding:0 24px 80px;background:#fff;}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:860px;margin:0 auto;}
+.faq-box{background:#f9fafb;border-radius:16px;padding:20px;border:1px solid #e5e7eb;}
+.faq-box h4{font-size:13px;font-weight:700;color:#111827;margin-bottom:6px;}
+.faq-box p{font-size:12px;color:#9ca3af;line-height:1.6;}
+
+/* CTA BANNER */
+.cta-banner{background:#111827;padding:64px 24px;text-align:center;}
+.cta-banner h2{font-family:'Outfit',sans-serif;font-size:clamp(24px,3.8vw,40px);font-weight:900;color:#fff;margin-bottom:12px;letter-spacing:-1px;}
+.cta-banner p{font-size:15px;color:rgba(255,255,255,.5);margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto;}
+
+/* FOOTER */
+footer{background:#111827;color:#fff;padding:52px 24px 26px;}
+.footer-inner{max-width:1200px;margin:0 auto;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;}
+.footer-brand p{font-size:12px;color:rgba(255,255,255,.4);line-height:1.7;margin:10px 0;}
+.footer-brand a{font-size:12px;color:rgba(255,255,255,.3);}
+.footer-col h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.3);margin-bottom:12px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:8px;}
+.footer-col a{font-size:13px;color:rgba(255,255,255,.4);transition:color .2s;}
+.footer-col a:hover{color:#fff;}
+.footer-bot{border-top:1px solid rgba(255,255,255,.06);padding-top:18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.footer-bot p{font-size:11px;color:rgba(255,255,255,.2);}
+.footer-bot-links{display:flex;gap:16px;}
+.footer-bot-links a{font-size:11px;color:rgba(255,255,255,.2);}
+.nav-logo-f{display:flex;align-items:center;gap:6px;font-family:'Outfit',sans-serif;font-size:20px;font-weight:900;color:#fff;}
+
+/* OBADGE */
+.obadge{display:inline-block;background:var(--orange);color:#fff;border-radius:999px;padding:5px 16px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nav-links,.nav-right{display:none;}
+  .mob-toggle{display:block;}
+  .plans-grid-p,.faq-grid{grid-template-columns:1fr 1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:600px){
+  .plans-grid-p,.faq-grid,.footer-grid{grid-template-columns:1fr;}
+}
+
+/* FADE ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease;}
+.fade-up.in{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <span class="logo-inf">∞</span>
+      <span>Karma<span class="logo-hq">HQ</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#services">Services</a>
+      <a href="about.html">About</a>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="pricing.html" class="active">Pricing</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-right">
+      <a href="https://karmahqio.base44.app/login?from_url=https%3A%2F%2Fkarmahqio.base44.app%2F">
+        <button class="btn-login">Login</button>
+      </a>
+      <a href="contact.html">
+        <button class="btn-orange">Get Started For Free →</button>
+      </a>
+    </div>
+    <button class="mob-toggle" onclick="document.getElementById('mobMenu').classList.toggle('open')">☰</button>
+  </div>
+  <div class="mob-menu" id="mobMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="pricing.html" style="color:#111827;font-weight:700;">Pricing</a>
+    <a href="contact.html">Contact</a>
+    <div style="padding-top:14px;"><a href="contact.html"><button class="btn-orange" style="width:100%;">Get Started For Free →</button></a></div>
+  </div>
+</nav>
+
+<!-- PAGE CONTENT -->
+<div class="page-wrap">
+
+  <!-- PRICING HERO -->
+  <section class="pricing-hero">
+    <div class="pricing-badge">PRICING</div>
+    <h1>Karma HQ Service Packages –<br/>Customizable &amp; Transparent</h1>
+    <p>Choose the plan that matches your brand mentions and AI visibility needs, from the free basic plan to the pro plan focused on your brand growth.</p>
+  </section>
+
+  <!-- PLAN CARDS -->
+  <section style="padding:0 0 40px;background:#fff;">
+    <div class="plans-grid-p">
+      <!-- FREE PLAN -->
+      <div class="plan-p fade-up">
+        <div class="plan-p-name">Free Plan</div>
+        <div class="plan-p-subdesc">Best for Individuals / Small Businesses</div>
+        <div class="plan-p-feats-section">
+          <ul class="plan-p-feats">
+            <li><span class="chk">✓</span>Basic Reddit Audit Report</li>
+            <li><span class="chk">✓</span>Basic Quora Audit Report</li>
+            <li><span class="chk">✓</span>Brand Overview + Opportunities</li>
+            <li><span class="chk">✓</span>20 AI search prompts</li>
+            <li><span class="chk">✓</span>20 social listening keywords</li>
+          </ul>
+        </div>
+        <div class="plan-p-pricing">
+          <div class="plan-p-pricing-lbl">Pricing</div>
+          <div class="plan-p-pricing-grid">
+            <div class="plan-p-cell"><strong>$10</strong> per Comment</div>
+            <div class="plan-p-cell"><strong>$25</strong> per Post</div>
+            <div class="plan-p-cell"><strong>$0.3</strong> per Upvote</div>
+            <div class="plan-p-cell"><strong>$0.3</strong> per Downvote</div>
+          </div>
+        </div>
+        <a href="contact.html"><button class="plan-p-btn orange">Get Started →</button></a>
+      </div>
+
+      <!-- PRO PLAN -->
+      <div class="plan-p pro fade-up" style="position:relative;">
+        <div class="plan-p-badge">Most Popular</div>
+        <div class="plan-p-name">Pro Plan</div>
+        <div class="plan-p-subdesc">Best for Established Brands / Businesses</div>
+        <div class="plan-p-feats-section">
+          <ul class="plan-p-feats">
+            <li><span class="chk">✓</span>Detailed Reddit Audit Report</li>
+            <li><span class="chk">✓</span>Detailed Quora Audit Report</li>
+            <li><span class="chk">✓</span>In-depth Analysis + Strategy</li>
+            <li><span class="chk">✓</span>75 AI search prompts</li>
+            <li><span class="chk">✓</span>75 social listening keywords</li>
+          </ul>
+        </div>
+        <div class="plan-p-pricing">
+          <div class="plan-p-pricing-lbl">Pricing</div>
+          <div class="plan-p-pricing-grid">
+            <div class="plan-p-cell"><strong>$8</strong> per Comment</div>
+            <div class="plan-p-cell"><strong>$20</strong> per Post</div>
+            <div class="plan-p-cell"><strong>$0.1</strong> per Upvote</div>
+            <div class="plan-p-cell"><strong>$0.3</strong> per Downvote</div>
+          </div>
+        </div>
+        <a href="contact.html"><button class="plan-p-btn white">Get Started →</button></a>
+      </div>
+    </div>
+
+    <!-- CUSTOM PACKAGE CTA -->
+    <div class="pricing-cta-wrap">
+      <div class="pricing-cta fade-up">
+        <h3>We Also Provide Custom Marketing Packages!</h3>
+        <p>To get started, simply share your website or brand details, and we will analyze your growth opportunities on Reddit and Quora.</p>
+        <a href="contact.html"><button class="btn-orange">Contact Us for More Details →</button></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-sec-p">
+    <div style="max-width:860px;margin:0 auto 28px;text-align:center;padding:0 24px;">
+      <h2 style="font-family:'Outfit',sans-serif;font-size:clamp(22px,3vw,34px);font-weight:900;color:#111827;">Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-box fade-up"><h4>What's included in the Free Audit?</h4><p>The Free Plan gives you a basic Reddit Audit Report including brand overview and growth opportunities on Reddit.</p></div>
+      <div class="faq-box fade-up"><h4>How does the Pro Plan differ?</h4><p>Pro includes a detailed, in-depth analysis with a full Reddit marketing strategy, competitor research, and weekly reports.</p></div>
+      <div class="faq-box fade-up"><h4>How is billing calculated?</h4><p>You pay per action — per comment, post, upvote, or downvote. Pro Plan rates are significantly lower than Free.</p></div>
+      <div class="faq-box fade-up"><h4>How do I get started?</h4><p>Simply fill out our form with your website/brand details and our team will analyze your Reddit opportunities.</p></div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <div class="cta-banner">
+    <h2>Ready to Dominate AI Search?</h2>
+    <p>Join 50+ brands already growing with KarmaHQ's Reddit and Quora marketing platform.</p>
+    <a href="contact.html"><button class="btn-orange" style="padding:14px 32px;font-size:15px;">Get Started Now →</button></a>
+  </div>
+
+</div><!-- /page-wrap -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo-f">
+          <span style="color:var(--orange);font-size:22px;">∞</span>
+          Karma<span style="color:var(--orange);">HQ</span>
+        </a>
+        <p>Karma HQ is a leading online forum marketing agency focusing on Reddit and Quora marketing services to help brands gain better AI search visibility and conversions.</p>
+        <a href="mailto:hello@karmahq.com">📧 hello@karmahq.com</a>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="how-it-works.html">Reddit Marketing</a></li>
+          <li><a href="how-it-works.html">Quora Marketing</a></li>
+          <li><a href="how-it-works.html">AI Visibility</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="index.html">Home</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#" target="_blank">Twitter / X</a></li>
+          <li><a href="#" target="_blank">LinkedIn</a></li>
+          <li><a href="#" target="_blank">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <p>© 2026 Karma HQ. All rights reserved.</p>
+      <div class="footer-bot-links">
+        <a href="https://karmahqio.base44.app/terms">Terms</a>
+        <a href="https://karmahqio.base44.app/terms">Privacy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Mobile menu
+function closeMob(){document.getElementById('mobMenu').classList.remove('open');}
+
+// Scroll animations
+window.addEventListener('load', function(){
+  var els = document.querySelectorAll('.fade-up');
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}
+    });
+  },{threshold:0.12});
+  els.forEach(function(el){obs.observe(el);});
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Contact – KarmaHQ</title>
+<meta name="description" content="Contact KarmaHQ – Share your brand details and we will analyze your growth opportunities."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;color:#111827;background:#fff;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+:root{--orange:#FF6201;--orange2:#F63E02;}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(255,255,255,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.06);}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{display:flex;align-items:center;gap:6px;font-family:'Outfit',sans-serif;font-size:20px;font-weight:900;color:#111827;cursor:pointer;text-decoration:none;}
+.logo-hq{color:var(--orange);}
+.nav-links{display:flex;align-items:center;gap:28px;}
+.nav-links a{font-size:14px;font-weight:500;color:#6b7280;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:#111827;}
+.nav-right{display:flex;align-items:center;gap:12px;}
+.btn-login{font-size:14px;font-weight:500;color:#6b7280;background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;}
+.btn-orange{background:var(--orange);color:#fff;border:none;padding:10px 22px;border-radius:999px;font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;}
+.btn-orange:hover{background:var(--orange2);}
+.mob-toggle{display:none;background:none;border:none;cursor:pointer;font-size:22px;color:#6b7280;}
+.mob-menu{display:none;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);padding:16px 24px 24px;position:fixed;top:64px;left:0;right:0;z-index:998;}
+.mob-menu.open{display:block;}
+.mob-menu a{display:block;padding:12px 0;border-bottom:1px solid rgba(0,0,0,.05);font-size:15px;font-weight:500;color:#6b7280;}
+
+/* PAGE WRAP */
+.page-wrap{padding-top:64px;}
+
+/* HERO */
+.contact-hero-sec{padding:72px 24px 44px;text-align:center;background:#fff;}
+.obadge{display:inline-block;background:var(--orange);color:#fff;border-radius:999px;padding:5px 16px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;}
+.contact-hero-sec h1{font-family:'Outfit',sans-serif;font-size:clamp(28px,4vw,48px);font-weight:900;color:#111827;letter-spacing:-1.5px;margin-bottom:10px;line-height:1.1;}
+.contact-hero-sec p{font-size:16px;color:#6b7280;max-width:480px;margin:0 auto;line-height:1.7;}
+
+/* CONTACT GRID */
+.contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:48px;max-width:900px;margin:0 auto;padding:20px 24px 80px;}
+
+/* CONTACT INFO */
+.c-info-title{font-size:18px;font-weight:700;color:#111827;margin-bottom:26px;}
+.c-row{display:flex;align-items:flex-start;gap:14px;margin-bottom:20px;}
+.c-ico{width:44px;height:44px;background:var(--orange);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;flex-shrink:0;}
+.c-lbl{font-size:11px;color:#9ca3af;margin-bottom:3px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;}
+.c-val{font-size:14px;font-weight:700;color:#111827;}
+
+/* DARK CHAT BOX */
+.chat-dark-box{background:#111827;border-radius:18px;padding:22px;color:#fff;margin-top:12px;}
+.chat-dark-box h4{font-size:15px;font-weight:700;margin-bottom:6px;}
+.chat-dark-box p{font-size:12px;color:rgba(255,255,255,.4);line-height:1.65;margin-bottom:14px;}
+.resp-row{background:#0d0d10;border-radius:10px;padding:12px;display:flex;align-items:center;gap:8px;}
+.green-dot{width:8px;height:8px;background:#10b981;border-radius:50%;flex-shrink:0;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
+
+/* FORM BOX */
+.form-box{background:#fff;border:1.5px solid #e5e7eb;border-radius:22px;padding:30px;box-shadow:0 6px 32px rgba(0,0,0,.07);}
+.form-box h3{font-family:'Outfit',sans-serif;font-size:20px;font-weight:900;color:#111827;margin-bottom:4px;}
+.form-box .fb-sub{font-size:13px;color:#9ca3af;margin-bottom:22px;}
+.fg{margin-bottom:15px;}
+.flabel{display:block;font-size:12px;font-weight:700;color:#374151;margin-bottom:5px;text-transform:uppercase;letter-spacing:.04em;}
+.finput,.ftextarea{width:100%;padding:12px 14px;border:1.5px solid #e5e7eb;border-radius:11px;font-size:13px;font-family:'DM Sans',sans-serif;outline:none;color:#111827;background:#f9fafb;transition:border .2s,background .2s;}
+.finput:focus,.ftextarea:focus{border-color:var(--orange);background:#fff;}
+.ftextarea{resize:none;height:96px;}
+.form-row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.fsubmit{width:100%;padding:14px;font-size:14px;font-weight:700;color:#fff;border:none;border-radius:12px;cursor:pointer;background:linear-gradient(135deg,var(--orange),var(--orange2));box-shadow:0 6px 18px rgba(255,98,1,.25);transition:all .2s;font-family:'DM Sans',sans-serif;margin-top:6px;}
+.fsubmit:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,98,1,.35);}
+.fsubmit:disabled{opacity:.7;cursor:not-allowed;transform:none;}
+
+/* SUCCESS STATE */
+.success-box{text-align:center;padding:52px 20px;}
+.success-icon{width:64px;height:64px;background:#d1fae5;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:28px;}
+.success-box h3{font-family:'Outfit',sans-serif;font-size:22px;font-weight:900;color:#111827;margin-bottom:8px;}
+.success-box p{font-size:14px;color:#6b7280;line-height:1.65;}
+
+/* MAP PLACEHOLDER */
+.map-placeholder{background:#f9fafb;border:1px solid #e5e7eb;border-radius:18px;padding:36px 24px;text-align:center;margin-top:24px;}
+.map-placeholder .map-icon{font-size:36px;margin-bottom:12px;}
+.map-placeholder p{font-size:13px;color:#9ca3af;line-height:1.6;}
+.map-placeholder strong{color:#111827;}
+
+/* CTA BANNER */
+.cta-banner{background:#111827;padding:64px 24px;text-align:center;}
+.cta-banner h2{font-family:'Outfit',sans-serif;font-size:clamp(24px,3.8vw,40px);font-weight:900;color:#fff;margin-bottom:12px;letter-spacing:-1px;}
+.cta-banner p{font-size:15px;color:rgba(255,255,255,.5);margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto;}
+
+/* FOOTER */
+footer{background:#111827;color:#fff;padding:52px 24px 26px;}
+.footer-inner{max-width:1200px;margin:0 auto;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;}
+.footer-brand p{font-size:12px;color:rgba(255,255,255,.4);line-height:1.7;margin:10px 0;}
+.footer-brand a{font-size:12px;color:rgba(255,255,255,.3);}
+.footer-col h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.3);margin-bottom:12px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:8px;}
+.footer-col a{font-size:13px;color:rgba(255,255,255,.4);transition:color .2s;}
+.footer-col a:hover{color:#fff;}
+.footer-bot{border-top:1px solid rgba(255,255,255,.06);padding-top:18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.footer-bot p{font-size:11px;color:rgba(255,255,255,.2);}
+.footer-bot-links{display:flex;gap:16px;}
+.footer-bot-links a{font-size:11px;color:rgba(255,255,255,.2);}
+.nav-logo-f{display:flex;align-items:center;gap:6px;font-family:'Outfit',sans-serif;font-size:20px;font-weight:900;color:#fff;}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nav-links,.nav-right{display:none;}
+  .mob-toggle{display:block;}
+  .contact-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:600px){
+  .form-row2{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+}
+
+/* ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease;}
+.fade-up.in{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <span style="color:var(--orange);font-size:22px;font-weight:900;">∞</span>
+      <span>Karma<span class="logo-hq">HQ</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#services">Services</a>
+      <a href="about.html">About</a>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="contact.html" class="active">Contact</a>
+    </div>
+    <div class="nav-right">
+      <a href="https://karmahqio.base44.app/login?from_url=https%3A%2F%2Fkarmahqio.base44.app%2F">
+        <button class="btn-login">Login</button>
+      </a>
+      <a href="contact.html">
+        <button class="btn-orange">Get Started For Free →</button>
+      </a>
+    </div>
+    <button class="mob-toggle" onclick="document.getElementById('mobMenu').classList.toggle('open')">☰</button>
+  </div>
+  <div class="mob-menu" id="mobMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="contact.html" style="color:#111827;font-weight:700;">Contact</a>
+    <div style="padding-top:14px;"><button class="btn-orange" style="width:100%;">Get Started For Free →</button></div>
+  </div>
+</nav>
+
+<!-- PAGE CONTENT -->
+<div class="page-wrap">
+
+  <!-- HERO -->
+  <section class="contact-hero-sec">
+    <div class="obadge">GET STARTED</div>
+    <h1>Analyze Your Reddit Opportunity</h1>
+    <p>Share your website or brand details and we will analyze your growth opportunities on Reddit and Quora.</p>
+  </section>
+
+  <!-- CONTACT GRID -->
+  <div class="contact-grid">
+
+    <!-- LEFT: Info -->
+    <div class="fade-up">
+      <p class="c-info-title">Contact Information</p>
+      <div class="c-row">
+        <div class="c-ico">📧</div>
+        <div>
+          <div class="c-lbl">Email us at</div>
+          <div class="c-val"><a href="mailto:hello@karmahq.com" style="color:var(--orange);">hello@karmahq.com</a></div>
+        </div>
+      </div>
+      <div class="c-row">
+        <div class="c-ico">📞</div>
+        <div>
+          <div class="c-lbl">Call us at</div>
+          <div class="c-val">+1 (555) 000-0000</div>
+        </div>
+      </div>
+      <div class="c-row">
+        <div class="c-ico">📍</div>
+        <div>
+          <div class="c-lbl">Find us at</div>
+          <div class="c-val">San Francisco, CA</div>
+        </div>
+      </div>
+
+      <div class="chat-dark-box">
+        <h4>💬 Prefer to chat?</h4>
+        <p>Use the chat widget in the bottom right corner. Our team typically replies within a few hours.</p>
+        <div class="resp-row">
+          <div class="green-dot"></div>
+          <span style="font-size:12px;color:rgba(255,255,255,.5);">Typically replies under 3 hours</span>
+        </div>
+      </div>
+
+      <div class="map-placeholder" style="margin-top:20px;">
+        <div class="map-icon">🗺️</div>
+        <p><strong>San Francisco, CA</strong><br/>We serve clients worldwide remotely.<br/>Drop us a message and we'll respond quickly.</p>
+      </div>
+    </div>
+
+    <!-- RIGHT: Form -->
+    <div class="form-box fade-up" id="contactFormBox">
+      <h3>Share your brand details</h3>
+      <p class="fb-sub">We'll analyze Reddit &amp; Quora opportunities specifically for your brand.</p>
+      <form id="contactForm" onsubmit="submitForm(event)">
+        <div class="form-row2">
+          <div class="fg">
+            <label class="flabel">Full Name *</label>
+            <input class="finput" placeholder="Your name" required/>
+          </div>
+          <div class="fg">
+            <label class="flabel">Email *</label>
+            <input class="finput" type="email" placeholder="you@company.com" required/>
+          </div>
+        </div>
+        <div class="form-row2">
+          <div class="fg">
+            <label class="flabel">Website URL</label>
+            <input class="finput" placeholder="https://yoursite.com"/>
+          </div>
+          <div class="fg">
+            <label class="flabel">Phone (optional)</label>
+            <input class="finput" placeholder="+1 (555) 000-0000"/>
+          </div>
+        </div>
+        <div class="fg">
+          <label class="flabel">Industry / Niche</label>
+          <input class="finput" placeholder="e.g. SaaS, E-commerce, Healthcare…"/>
+        </div>
+        <div class="fg">
+          <label class="flabel">Brand Details *</label>
+          <textarea class="ftextarea" placeholder="Tell us about your brand, your goals, and what challenges you're facing…" required></textarea>
+        </div>
+        <button type="submit" class="fsubmit" id="submitBtn">Analyze My Reddit Opportunity →</button>
+      </form>
+    </div>
+
+  </div>
+
+  <!-- CTA BANNER -->
+  <div class="cta-banner">
+    <h2>Still have questions?</h2>
+    <p>Check out our pricing page or learn how KarmaHQ works before reaching out.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="pricing.html"><button class="btn-orange" style="padding:14px 32px;font-size:15px;">View Pricing →</button></a>
+      <a href="how-it-works.html"><button style="padding:14px 32px;font-size:15px;background:transparent;border:2px solid rgba(255,255,255,.3);color:#fff;border-radius:999px;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:700;transition:border-color .2s;" onmouseover="this.style.borderColor='rgba(255,255,255,.7)'" onmouseout="this.style.borderColor='rgba(255,255,255,.3)'">How It Works →</button></a>
+    </div>
+  </div>
+
+</div><!-- /page-wrap -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo-f">
+          <span style="color:var(--orange);font-size:22px;">∞</span>
+          Karma<span style="color:var(--orange);">HQ</span>
+        </a>
+        <p>Karma HQ is a leading online forum marketing agency focusing on Reddit and Quora marketing services to help brands gain better AI search visibility and conversions.</p>
+        <a href="mailto:hello@karmahq.com">📧 hello@karmahq.com</a>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="how-it-works.html">Reddit Marketing</a></li>
+          <li><a href="how-it-works.html">Quora Marketing</a></li>
+          <li><a href="how-it-works.html">AI Visibility</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="index.html">Home</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#" target="_blank">Twitter / X</a></li>
+          <li><a href="#" target="_blank">LinkedIn</a></li>
+          <li><a href="#" target="_blank">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <p>© 2026 Karma HQ. All rights reserved.</p>
+      <div class="footer-bot-links">
+        <a href="https://karmahqio.base44.app/terms">Terms</a>
+        <a href="https://karmahqio.base44.app/terms">Privacy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Form submit
+function submitForm(e){
+  e.preventDefault();
+  var btn = document.getElementById('submitBtn');
+  btn.textContent = 'Submitting…';
+  btn.disabled = true;
+  setTimeout(function(){
+    document.getElementById('contactFormBox').innerHTML =
+      '<div class="success-box">' +
+        '<div class="success-icon">✓</div>' +
+        '<h3>We\'re on it!</h3>' +
+        '<p>Your information has been received. Our team will analyze your Reddit &amp; Quora opportunities and get back to you within 24 hours.</p>' +
+      '</div>';
+  }, 900);
+}
+
+// Scroll animations
+window.addEventListener('load', function(){
+  var els = document.querySelectorAll('.fade-up');
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}
+    });
+  },{threshold:0.1});
+  els.forEach(function(el){obs.observe(el);});
+});
+</script>
+</body>
+</html>

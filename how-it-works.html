@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>How It Works – KarmaHQ</title>
+<meta name="description" content="How KarmaHQ helps brands rank on AI search engines in 5 simple steps."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;color:#111827;background:#fff;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+:root{--orange:#FF6201;--orange2:#F63E02;}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(255,255,255,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.06);}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{display:flex;align-items:center;gap:6px;font-family:'Outfit',sans-serif;font-size:20px;font-weight:900;color:#111827;cursor:pointer;text-decoration:none;}
+.logo-hq{color:var(--orange);}
+.nav-links{display:flex;align-items:center;gap:28px;}
+.nav-links a{font-size:14px;font-weight:500;color:#6b7280;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:#111827;}
+.nav-right{display:flex;align-items:center;gap:12px;}
+.btn-login{font-size:14px;font-weight:500;color:#6b7280;background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;}
+.btn-orange{background:var(--orange);color:#fff;border:none;padding:10px 22px;border-radius:999px;font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;}
+.btn-orange:hover{background:var(--orange2);}
+.mob-toggle{display:none;background:none;border:none;cursor:pointer;font-size:22px;color:#6b7280;}
+.mob-menu{display:none;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);padding:16px 24px 24px;position:fixed;top:64px;left:0;right:0;z-index:998;}
+.mob-menu.open{display:block;}
+.mob-menu a{display:block;padding:12px 0;border-bottom:1px solid rgba(0,0,0,.05);font-size:15px;font-weight:500;color:#6b7280;}
+
+/* PAGE WRAP */
+.page-wrap{padding-top:64px;}
+
+/* HERO */
+.hiw-page-hero{padding:72px 24px 52px;text-align:center;background:#f9fafb;}
+.obadge{display:inline-block;background:var(--orange);color:#fff;border-radius:999px;padding:5px 16px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px;}
+.hiw-page-hero h1{font-family:'Outfit',sans-serif;font-size:clamp(32px,6vw,64px);font-weight:900;color:#111827;letter-spacing:-2px;margin-bottom:14px;line-height:1.05;}
+.hiw-page-hero p{font-size:16px;color:#6b7280;max-width:460px;margin:0 auto;line-height:1.7;}
+
+/* 5-STEP GRID */
+.hiw-page-inner{max-width:1000px;margin:0 auto;padding:56px 24px 80px;}
+.hiw5-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.hiw5-card{background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:28px;display:flex;gap:18px;transition:box-shadow .2s,transform .2s;}
+.hiw5-card:hover{box-shadow:0 10px 32px rgba(0,0,0,.08);transform:translateY(-3px);}
+.hiw5-num{width:48px;height:48px;border-radius:50%;background:var(--orange);color:#fff;font-family:'Outfit',sans-serif;font-size:14px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.hiw5-emoji{font-size:26px;margin-bottom:10px;}
+.hiw5-card h3{font-size:16px;font-weight:700;color:#111827;margin-bottom:8px;}
+.hiw5-card p{font-size:13px;color:#6b7280;line-height:1.7;}
+.hiw5-full{grid-column:span 2;}
+
+/* EXTRA: WHY SECTION */
+.why-sec{background:#fff;padding:72px 24px;}
+.why-inner{max-width:940px;margin:0 auto;}
+.why-title{font-family:'Outfit',sans-serif;font-size:clamp(24px,3.5vw,38px);font-weight:900;color:#111827;text-align:center;margin-bottom:10px;}
+.why-sub{text-align:center;color:#9ca3af;font-size:15px;max-width:500px;margin:0 auto 44px;line-height:1.7;}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.why-card{background:#f9fafb;border:1px solid #e5e7eb;border-radius:18px;padding:24px;}
+.why-icon{width:46px;height:46px;background:#fff0e8;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px;}
+.why-card h3{font-size:15px;font-weight:700;color:#111827;margin-bottom:7px;}
+.why-card p{font-size:13px;color:#6b7280;line-height:1.65;}
+
+/* CTA BANNER */
+.cta-banner{background:#111827;padding:64px 24px;text-align:center;}
+.cta-banner h2{font-family:'Outfit',sans-serif;font-size:clamp(24px,3.8vw,40px);font-weight:900;color:#fff;margin-bottom:12px;letter-spacing:-1px;}
+.cta-banner p{font-size:15px;color:rgba(255,255,255,.5);margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto;}
+
+/* FOOTER */
+footer{background:#111827;color:#fff;padding:52px 24px 26px;}
+.footer-inner{max-width:1200px;margin:0 auto;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;}
+.footer-brand p{font-size:12px;color:rgba(255,255,255,.4);line-height:1.7;margin:10px 0;}
+.footer-brand a{font-size:12px;color:rgba(255,255,255,.3);}
+.footer-col h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.3);margin-bottom:12px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:8px;}
+.footer-col a{font-size:13px;color:rgba(255,255,255,.4);transition:color .2s;}
+.footer-col a:hover{color:#fff;}
+.footer-bot{border-top:1px solid rgba(255,255,255,.06);padding-top:18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.footer-bot p{font-size:11px;color:rgba(255,255,255,.2);}
+.footer-bot-links{display:flex;gap:16px;}
+.footer-bot-links a{font-size:11px;color:rgba(255,255,255,.2);}
+.nav-logo-f{display:flex;align-items:center;gap:6px;font-family:'Outfit',sans-serif;font-size:20px;font-weight:900;color:#fff;}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nav-links,.nav-right{display:none;}
+  .mob-toggle{display:block;}
+  .hiw5-grid,.why-grid{grid-template-columns:1fr 1fr;}
+  .hiw5-full{grid-column:span 1;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:600px){
+  .hiw5-grid,.why-grid,.footer-grid{grid-template-columns:1fr;}
+  .hiw5-full{grid-column:span 1;}
+}
+
+/* ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease;}
+.fade-up.in{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <span style="color:var(--orange);font-size:22px;font-weight:900;">∞</span>
+      <span>Karma<span class="logo-hq">HQ</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#services">Services</a>
+      <a href="about.html">About</a>
+      <a href="how-it-works.html" class="active">How It Works</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-right">
+      <a href="https://karmahqio.base44.app/login?from_url=https%3A%2F%2Fkarmahqio.base44.app%2F">
+        <button class="btn-login">Login</button>
+      </a>
+      <a href="contact.html">
+        <button class="btn-orange">Get Started For Free →</button>
+      </a>
+    </div>
+    <button class="mob-toggle" onclick="document.getElementById('mobMenu').classList.toggle('open')">☰</button>
+  </div>
+  <div class="mob-menu" id="mobMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="how-it-works.html" style="color:#111827;font-weight:700;">How It Works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="contact.html">Contact</a>
+    <div style="padding-top:14px;"><a href="contact.html"><button class="btn-orange" style="width:100%;">Get Started For Free →</button></a></div>
+  </div>
+</nav>
+
+<!-- PAGE CONTENT -->
+<div class="page-wrap">
+
+  <!-- HERO -->
+  <section class="hiw-page-hero">
+    <div class="obadge">HOW IT WORKS</div>
+    <h1>From invisible to recommended</h1>
+    <p>KarmaHQ turns AI search from a mystery into a strategy — in 5 simple steps.</p>
+  </section>
+
+  <!-- 5 STEPS -->
+  <div class="hiw-page-inner">
+    <div class="hiw5-grid">
+
+      <div class="hiw5-card fade-up">
+        <div class="hiw5-num">01</div>
+        <div>
+          <div class="hiw5-emoji">🔗</div>
+          <h3>Connect Your Brand</h3>
+          <p>Add your brand name, website, and key competitors. KarmaHQ starts tracking immediately across all major AI models.</p>
+        </div>
+      </div>
+
+      <div class="hiw5-card fade-up">
+        <div class="hiw5-num">02</div>
+        <div>
+          <div class="hiw5-emoji">📊</div>
+          <h3>Track AI Visibility</h3>
+          <p>See exactly how AI models like ChatGPT, Perplexity, and Gemini mention (or ignore) your brand. Get your AI Visibility Score.</p>
+        </div>
+      </div>
+
+      <div class="hiw5-card fade-up">
+        <div class="hiw5-num">03</div>
+        <div>
+          <div class="hiw5-emoji">🔍</div>
+          <h3>Discover Opportunities</h3>
+          <p>Find conversations on Reddit, Quora, and forums where AI pulls its answers — and where your brand should be mentioned.</p>
+        </div>
+      </div>
+
+      <div class="hiw5-card fade-up">
+        <div class="hiw5-num">04</div>
+        <div>
+          <div class="hiw5-emoji">💬</div>
+          <h3>Engage &amp; Get Mentioned</h3>
+          <p>Use our Engagement Engine to participate in those key conversations authentically, getting your brand into AI-cited sources.</p>
+        </div>
+      </div>
+
+      <div class="hiw5-card hiw5-full fade-up">
+        <div class="hiw5-num">05</div>
+        <div>
+          <div class="hiw5-emoji">🚀</div>
+          <h3>Watch Rankings Rise</h3>
+          <p>Monitor your AI Visibility Score improve as more AI models start recommending your brand over competitors. Track growth week over week and stay ahead of the curve.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- WHY SECTION -->
+  <section class="why-sec">
+    <div class="why-inner">
+      <h2 class="why-title">Why This Approach Works</h2>
+      <p class="why-sub">AI engines pull answers from trusted community discussions — we make sure your brand is part of those conversations.</p>
+      <div class="why-grid">
+        <div class="why-card fade-up">
+          <div class="why-icon">🧠</div>
+          <h3>AI Learns from Communities</h3>
+          <p>Reddit and Quora are among the top sources AI engines cite. Being present there directly influences how AI recommends your brand.</p>
+        </div>
+        <div class="why-card fade-up">
+          <div class="why-icon">🤝</div>
+          <h3>Authenticity Builds Trust</h3>
+          <p>We craft responses that genuinely help users, making your brand look like the natural go-to solution rather than a paid promotion.</p>
+        </div>
+        <div class="why-card fade-up">
+          <div class="why-icon">📈</div>
+          <h3>Compounding Results</h3>
+          <p>Each mention, upvote, and engagement adds to a growing body of brand signals that continue to improve your AI visibility over time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <div class="cta-banner">
+    <h2>Ready to Start?</h2>
+    <p>Join hundreds of brands already growing their AI search visibility with KarmaHQ.</p>
+    <a href="contact.html"><button class="btn-orange" style="padding:14px 32px;font-size:15px;">Get Started Now →</button></a>
+  </div>
+
+</div><!-- /page-wrap -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo-f">
+          <span style="color:var(--orange);font-size:22px;">∞</span>
+          Karma<span style="color:var(--orange);">HQ</span>
+        </a>
+        <p>Karma HQ is a leading online forum marketing agency focusing on Reddit and Quora marketing services to help brands gain better AI search visibility and conversions.</p>
+        <a href="mailto:hello@karmahq.com">📧 hello@karmahq.com</a>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="how-it-works.html">Reddit Marketing</a></li>
+          <li><a href="how-it-works.html">Quora Marketing</a></li>
+          <li><a href="how-it-works.html">AI Visibility</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="index.html">Home</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#" target="_blank">Twitter / X</a></li>
+          <li><a href="#" target="_blank">LinkedIn</a></li>
+          <li><a href="#" target="_blank">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <p>© 2026 Karma HQ. All rights reserved.</p>
+      <div class="footer-bot-links">
+        <a href="https://karmahqio.base44.app/terms">Terms</a>
+        <a href="https://karmahqio.base44.app/terms">Privacy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('load', function(){
+  var els = document.querySelectorAll('.fade-up');
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}
+    });
+  },{threshold:0.12});
+  els.forEach(function(el){obs.observe(el);});
+});
+</script>
+</body>
+</html>
